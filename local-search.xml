@@ -4,11 +4,36 @@
   
   
   <entry>
-    <title>test</title>
+    <title>原来建自己的blog这么简单</title>
+    <link href="/2022/05/20/hexo-build/"/>
+    <url>/2022/05/20/hexo-build/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo,nodeJs,fluid</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>图片页面展示测试</title>
     <link href="/2022/05/19/test/"/>
     <url>/2022/05/19/test/</url>
     
-    <content type="html"><![CDATA[<img src="/2022/05/19/test/small0035174yhMI1651768517.jpg" alt="五月" style="zoom:33%;">]]></content>
+    <content type="html"><![CDATA[<h3 id="1、-test-small0035174yhMI1651768517-jpg-本机网页都不可查看"><a href="#1、-test-small0035174yhMI1651768517-jpg-本机网页都不可查看" class="headerlink" title="1、/test/small0035174yhMI1651768517.jpg  本机网页都不可查看"></a>1、/test/small0035174yhMI1651768517.jpg  本机网页都不可查看</h3><p><img src="/test/small0035174yhMI1651768517.jpg" alt="五月"></p><h3 id="2、-img-test-small0035174yhMI1651768517-jpg-本机可查看，网页查看不了"><a href="#2、-img-test-small0035174yhMI1651768517-jpg-本机可查看，网页查看不了" class="headerlink" title="2、../img/test/small0035174yhMI1651768517.jpg   本机可查看，网页查看不了"></a>2、../img/test/small0035174yhMI1651768517.jpg   本机可查看，网页查看不了</h3><p><img src="/2022/05/19/test/img/test/small0035174yhMI1651768517.jpg" alt="五月"></p><h3 id="3、-img-test-small0035174yhMI1651768517-jpg-本机不可查看，网页可查看"><a href="#3、-img-test-small0035174yhMI1651768517-jpg-本机不可查看，网页可查看" class="headerlink" title="3、/img/test/small0035174yhMI1651768517.jpg    本机不可查看，网页可查看"></a>3、/img/test/small0035174yhMI1651768517.jpg    本机不可查看，网页可查看</h3><p><img src="/img/test/small0035174yhMI1651768517.jpg" alt="五月"></p><h3 id="4、small0035174yhMI1651768517-本路径下有test文件夹与图片-本机不可查看，网页可查看"><a href="#4、small0035174yhMI1651768517-本路径下有test文件夹与图片-本机不可查看，网页可查看" class="headerlink" title="4、small0035174yhMI1651768517    本路径下有test文件夹与图片   本机不可查看，网页可查看"></a>4、small0035174yhMI1651768517    本路径下有test文件夹与图片   本机不可查看，网页可查看</h3><img src="/2022/05/19/test/small0035174yhMI1651768517.jpg" class title="五月"><h3 id="5、test-small0035174yhMI1651768517-jpg-本路径下有test文件夹与图片-本机与网页都可以打开"><a href="#5、test-small0035174yhMI1651768517-jpg-本路径下有test文件夹与图片-本机与网页都可以打开" class="headerlink" title="5、test/small0035174yhMI1651768517.jpg    本路径下有test文件夹与图片   本机与网页都可以打开"></a>5、test/small0035174yhMI1651768517.jpg    本路径下有test文件夹与图片   本机与网页都可以打开</h3><p><img src="/2022/05/19/test/small0035174yhMI1651768517.jpg" alt="五月"></p>]]></content>
     
     
     <categories>
@@ -42,6 +67,12 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>测试</tag>
+      
+    </tags>
     
   </entry>
   
