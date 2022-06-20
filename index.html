@@ -58,7 +58,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -219,6 +219,73 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hexo-picgo-oss/picgo-oss/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/29.jpeg" srcset="/blog/img/loading.gif" lazyload alt="花钱的图片服务就是好用哈（picGo+阿里云OSS）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hexo-picgo-oss/picgo-oss/" target="_self">
+          花钱的图片服务就是好用哈（picGo+阿里云OSS）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hexo-picgo-oss/picgo-oss/" target="_self">
+        <div>
+          
+          接上一篇让你一篇文章走天下（SM.MS的妙用）,虽然SM.MS还是不错的，但是将文章发布到其他平台时，会出现获取不到图片的问题，如简书，公众号等，试了下，使用SM.MS是可以在知乎上正常使用的上篇文章。但为了保持各平台都可以通用，所以狠心买了OSS服务（心疼那几十块）。 一、注册阿里云账号并创建子账号赋权可自行注册阿里云账号，也可以使用淘宝，钉钉登录。注册好阿里云账号可设置RAM子账号，一般使用子
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-20 16:06" pubdate>
+              2022-06-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hexo/" class="category-chain-item">hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/hexo-picgo-oss/">#hexo,picgo,oss</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/blog/docs/hexo-picgo/hexo-picgo/" target="_self">
           <img src="https://s2.loli.net/2022/06/17/WwD9yiFtpBX7cSx.png" srcset="/blog/img/loading.gif" lazyload alt="让你一篇文章走天下（SM.MS的妙用）">
         </a>
@@ -235,7 +302,7 @@
       <a class="index-excerpt" href="/blog/docs/hexo-picgo/hexo-picgo/" target="_self">
         <div>
           
-          上篇解决了fluid的配置问题(可访问纯码农的博客)，现在就是关于图片的问题，如果想在多个平台发布文章，那么图片就不能存放在本地，那么就有了图床的概念。就是把你的图片上传到网上，我们获取到对应的url就可以一次编辑，多处使用了。 一、gitee无法图床之前看网上可以结合Gitee,新建仓库然后使用picGo工具上传，鄙人试了一下，现在Gitee做了检查，不准使用图床外链，如果使用就会将仓库设为私有
+          上篇解决了fluid的配置问题(可访问纯码农的博客)，现在就是关于图片的问题，如果想在多个平台发布文章，那么图片就不能存放在本地，那么就有了图床的概念。就是把你的图片上传到网上，我们获取到对应的url就可以一次编辑，多处使用了。 一、gitee无法使用外链之前看网上可以结合Gitee,新建仓库然后使用picGo工具上传，鄙人试了一下，现在Gitee做了检查，不准使用图床外链，如果使用就会将仓库设为
         </div>
       </a>
 
@@ -579,6 +646,23 @@
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
 
 
   
@@ -589,6 +673,8 @@
 
 
   <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
 
 
 

@@ -71,7 +71,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -237,6 +237,14 @@
 
     
     
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
   </div>
 
 
@@ -294,7 +302,7 @@
 <p><img src="/blog/docs/hexo/hexo-build/git_cmd.png" srcset="/blog/img/loading.gif" lazyload alt="git_cmd"></p>
 <p><img src="/blog/docs/hexo/hexo-build/git_right.png" srcset="/blog/img/loading.gif" lazyload alt="鼠标右击显示Git"></p>
 <p>出现版本号表示安装成功</p>
-<h4 id="4、仓库公钥配置"><a href="#4、仓库公钥配置" class="headerlink" title="4、仓库公钥配置"></a>4、仓库公钥配置</h4><p>cmd后输入命令生成公钥与私钥, “<a href="mailto:&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#x78;&#120;&#x78;&#x78;&#x78;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a>“ 是自己的邮箱，可使用其他邮箱</p>
+<h4 id="4、仓库公钥配置"><a href="#4、仓库公钥配置" class="headerlink" title="4、仓库公钥配置"></a>4、仓库公钥配置</h4><p>cmd后输入命令生成公钥与私钥, “<a href="mailto:&#120;&#x78;&#x78;&#x78;&#120;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#120;&#x78;&#x78;&#x78;&#120;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a>“ 是自己的邮箱，可使用其他邮箱</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">ssh-keygen -t ed25519 -C <span class="hljs-string">&quot;xxxxx@qq.com&quot;</span></span>  <br></code></pre></td></tr></table></figure>
 
 <p><img src="/blog/docs/hexo/hexo-build/ssh_create.png" srcset="/blog/img/loading.gif" lazyload alt="生成ssh密钥"></p>
@@ -613,6 +621,23 @@
 
 
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
 
 
   
@@ -754,6 +779,8 @@
   <script>Fluid.plugins.imageCaption();</script>
 
   <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
 
 
 
