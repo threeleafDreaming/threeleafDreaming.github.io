@@ -1,0 +1,767 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JimmyShen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="汝之观览，吾之幸也！本文章主要统计大数据方面的名词概念，不至于一上来就看到那么多技术名词晕头转向。随时更新  一、LinuxLinux是一个操作系统，是在Unix基础上进行开发的。Linux的是林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）在大学期间在Unix做了磁盘驱动与文件系统，这些就成为了Linxu的内核。如果在内核上基础上加了软件，就会成为Linux的发行版">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【大数据】统一打包的名词备忘录">
+<meta property="og:url" content="https://purecodefarmer.gitee.io/docs/hadoop-00/bigdata/hadoop/hadoop-00/index.html">
+<meta property="og:site_name" content="pureCodeFarmer">
+<meta property="og:description" content="汝之观览，吾之幸也！本文章主要统计大数据方面的名词概念，不至于一上来就看到那么多技术名词晕头转向。随时更新  一、LinuxLinux是一个操作系统，是在Unix基础上进行开发的。Linux的是林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）在大学期间在Unix做了磁盘驱动与文件系统，这些就成为了Linxu的内核。如果在内核上基础上加了软件，就会成为Linux的发行版">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/29.jpeg">
+<meta property="article:published_time" content="2022-07-29T08:35:41.000Z">
+<meta property="article:modified_time" content="2022-08-16T03:23:12.746Z">
+<meta property="article:author" content="JimmyShen">
+<meta property="article:tag" content="hadoop">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/29.jpeg">
+  
+  
+  
+  <title>【大数据】统一打包的名词备忘录 - pureCodeFarmer</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":"https://1epgvtla.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>纯码农的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【大数据】统一打包的名词备忘录"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-29 16:35" pubdate>
+          2022年7月29日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【大数据】统一打包的名词备忘录</h1>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
+<p>汝之观览，吾之幸也！本文章主要统计大数据方面的名词概念，不至于一上来就看到那么多技术名词晕头转向。随时更新</p>
+</blockquote>
+<h3 id="一、Linux"><a href="#一、Linux" class="headerlink" title="一、Linux"></a>一、Linux</h3><p>Linux是一个操作系统，是在Unix基础上进行开发的。<br>Linux的是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9E%97%E7%BA%B3%E6%96%AF%C2%B7%E6%9C%AC%E7%BA%B3%E7%AC%AC%E5%85%8B%E7%89%B9%C2%B7%E6%89%98%E7%93%A6%E5%85%B9/1034429?fr=aladdin">林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）</a>在大学期间在Unix做了磁盘驱动与文件系统，这些就成为了Linxu的内核。如果在内核上基础上加了软件，就会成为Linux的发行版，比如RedHat、CentOs、<a target="_blank" rel="noopener" href="https://www.deepin.org/index/zh">Deppin-基于Linux的开源国产操作系统</a>等<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/linux/linux%E7%9A%84%E5%8F%91%E8%A1%8C%E7%89%88%E6%9E%B6%E6%9E%84.png" srcset="/blog/img/loading.gif" lazyload alt="linux"><br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/linux/linux%E5%8F%91%E8%A1%8C%E7%89%88.png" srcset="/blog/img/loading.gif" lazyload alt="linux发行版本"></p>
+<h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>虚拟机（Virtual Machine）指通过软件模拟的具有完整硬件系统功能的，运行在一个完全隔离环境中的完整计算机系统。<br>一般虚拟机就是指操作系统。</p>
+<h4 id="Vmware"><a href="#Vmware" class="headerlink" title="Vmware"></a>Vmware</h4><p>是一款虚拟机软件，兼容性强，快照功能便捷，方便，允许你在任意开机时刻创建系统快照和恢复。其他的虚拟机软件（VirtualBox）</p>
+<h3 id="二、大数据"><a href="#二、大数据" class="headerlink" title="二、大数据"></a>二、大数据</h3><p>常见的数据单位<br>| 1Byte（字节）=8bit（比特） | 1K（千）=1024Byte  | 1M（兆）=1024K     | 1G（千兆）=1024M   |<br>| ————————– | —————— | —————— | —————— |<br>| <strong>1T（太）=1024G</strong>         | <strong>1P（拍）=1024T</strong> | <strong>1E（艾）=1024P</strong> | <strong>1Z（泽）=1024E</strong> |<br>| <strong>1Y（尧）=1024Z</strong>         | <strong>1B（布）=1024Y</strong> | <strong>1N（诺）=1024B</strong> | <strong>1D（刀）=1024N</strong> |</p>
+<p>一般我们了解的只到TB级别，再往上的数据我们怎么处理，这就引申出大数据的概念。<br>大数据（Big Data）,是值无法在一定时间范围内用常规工具进行捕捉、管理和处理的数据集合。是需要新处理模式才能具有更强的决策力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产。<br>大数据主要解决的问题：海量数据的<font color="red">存储</font>和海量数据的<font color="red">计算</font>问题</p>
+<h4 id="Hadoop"><a href="#Hadoop" class="headerlink" title="Hadoop"></a>Hadoop</h4><p>是Apache基金会开发的分布式系统基础架构。广泛的概念是Hadoop生态圈。</p>
+<p>Google的三篇论文：</p>
+<figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs livescript">GFS --&gt; HDFS ：分布式框架<br><span class="hljs-built_in">Map</span> Reduce --&gt;MR：分布式计算<br>BigTable --&gt;HBase：分布式数据库<br></code></pre></td></tr></table></figure>
+
+<h3 id="三、数据仓库"><a href="#三、数据仓库" class="headerlink" title="三、数据仓库"></a>三、数据仓库</h3><h4 id="ETL（Extract-Transform-Load）"><a href="#ETL（Extract-Transform-Load）" class="headerlink" title="ETL（Extract-Transform-Load）"></a>ETL（Extract-Transform-Load）</h4><p>数据仓库技术，用来描述将<strong>数据</strong>从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程。<strong>ETL</strong>一词较常用在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93">数据仓库</a>，但其对象并不限于数据仓库。</p>
+<h4 id="分层"><a href="#分层" class="headerlink" title="分层"></a>分层</h4><h5 id="ODS（Operational-Data-Store，操作数据层）"><a href="#ODS（Operational-Data-Store，操作数据层）" class="headerlink" title="ODS（Operational Data Store，操作数据层）"></a>ODS（Operational Data Store，操作数据层）</h5><p>把操作系统数据几乎无处理的存放在数据仓库系统中。</p>
+<ul>
+<li>实现功能：该层为数据接入源层，业务源系统数据接入到此层，此层数据不做任何加工，禁止重复进入</li>
+<li>数据来源范围：业务源系统</li>
+<li>数据存储时长：根据业务需求状况<h5 id="CDM（Common-Data-Model，通用数据模型层-数据中间层）"><a href="#CDM（Common-Data-Model，通用数据模型层-数据中间层）" class="headerlink" title="CDM（Common Data Model，通用数据模型层/数据中间层）"></a>CDM（Common Data Model，通用数据模型层/数据中间层）</h5>主要完成公共数据加工与整合，建立一致性的维度，构建可复用面向分析和统计的明细事实表以及汇总事实表。<h6 id="DIM（Dimension，公共维度层）"><a href="#DIM（Dimension，公共维度层）" class="headerlink" title="DIM（Dimension，公共维度层）"></a>DIM（Dimension，公共维度层）</h6>是CDM层中的公共维度层，基于维度建模理论，建设企业一致性公共维度数据。</li>
+<li>实现功能：该层为公共维表层，该层独立于dwd、dws、ads，为dwd、dws、ads提供维度字段说明。</li>
+<li>数据来源范围：ods、人工录入</li>
+<li>数据存储时长：根据业务需求状况<h6 id="DWD（Data-Warehouse-Detail-Model，明细宽表层）"><a href="#DWD（Data-Warehouse-Detail-Model，明细宽表层）" class="headerlink" title="DWD（Data Warehouse Detail Model，明细宽表层）"></a>DWD（Data Warehouse Detail Model，明细宽表层）</h6>是CDM层中的明细宽表层，用于存放完整详细历史数据。</li>
+<li>实现功能：该层为融合数据层，主要对分来源基础数据进行数据整合。该层数据可以对应用开放。用于解决数据融合的问题。</li>
+<li>数据来源范围：此层数据来源于分来源基础数据表</li>
+<li>数据存储时长：根据业务需求保留<h6 id="DWS（Data-Warehouse-Subject，数据汇总层）"><a href="#DWS（Data-Warehouse-Subject，数据汇总层）" class="headerlink" title="DWS（Data Warehouse Subject，数据汇总层）"></a>DWS（Data Warehouse Subject，数据汇总层）</h6>是CDM层中存放详细历史数据的公共汇总数据层，面向分析主题建模。</li>
+<li>实现功能：该层为宽表数据层，主要根据多个基础数据层表，整合应用需要的指标宽表。为全局抽象的业务实体及汇总型事实表</li>
+<li>数据来源范围：dwd</li>
+<li>数据存储时长：根据业务需求状况<h5 id="ADS（Application-Data-Service，应用数据层）"><a href="#ADS（Application-Data-Service，应用数据层）" class="headerlink" title="ADS（Application Data Service，应用数据层）"></a>ADS（Application Data Service，应用数据层）</h5>提供直接面向业务或应用的数据，主要对个性化指标数据进行架构处理，如无公用性或复杂性（如指数型、比值型、排名型等指标数据）的指标数据加工。</li>
+<li>实现功能：该层为应用数据层，根据业务需求组织数据，该层支持百花齐放、尽可能都依赖dws，特殊情况可依赖dwd的数据，该层定期需要定期review，将公共指标沉淀到dws中</li>
+<li>数据来源范围：dws、dwd</li>
+<li>数据存储时长：根据业务需求状况<h5 id="EVL（Evaluation，数据评价层）"><a href="#EVL（Evaluation，数据评价层）" class="headerlink" title="EVL（Evaluation，数据评价层）"></a>EVL（Evaluation，数据评价层）</h5></li>
+<li>实现功能：该层为数据评价层，该层独立与ods、dwd、dws，对其他层进行数据的检测和评价</li>
+<li>数据来源：其他各层</li>
+<li>存储时长：根据业务需求情况<h4 id="分域"><a href="#分域" class="headerlink" title="分域"></a>分域</h4></li>
+<li>业务域有用户数据和业务数据，比如用户的消费习惯、终端信息、ARPU的分组、业务内容，业务受众人群等</li>
+<li>操作域有网络数据，比如信令、告警、故障、网络资源等</li>
+<li>运动域有位置信息，比如对象的流动轨迹、地图信息等<h4 id="数据实体"><a href="#数据实体" class="headerlink" title="数据实体"></a>数据实体</h4>实体是指现实世界中客观存在的并可以相互区分的对象或事物。就数据库而言，实体往往指某类事物的集合。可以是具体的人事物，也可以是抽象的概念、联系。<h4 id="账期"><a href="#账期" class="headerlink" title="账期"></a>账期</h4>年、月、日、周、时、分、秒、实时、历史<h4 id="编码规则"><a href="#编码规则" class="headerlink" title="编码规则"></a>编码规则</h4>表名的编码规则：<figure class="highlight bnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bnf">ods_[业务单位]_<span class="hljs-attribute">&lt;源系统简写&gt;</span>_<span class="hljs-attribute">&lt;源系统表名&gt;</span><br>dwd_<span class="hljs-attribute">&lt;数据域&gt;</span>_<span class="hljs-attribute">&lt;数据内容描述&gt;</span> _[数据周期]<br>dws_<span class="hljs-attribute">&lt;数据域&gt;</span>_<span class="hljs-attribute">&lt;数据粒度&gt;</span>_<span class="hljs-attribute">&lt;表内容描述&gt;</span>_[数据周期]<br>ads_<span class="hljs-attribute">&lt;应用名称&gt;</span>_<span class="hljs-attribute">&lt;数据内容描述&gt;</span>_[数据周期]<br>dim_<span class="hljs-attribute">&lt;数据内容描述&gt;</span><br>evl_<span class="hljs-attribute">&lt;主题域&gt;</span>_<span class="hljs-attribute">&lt;数据内容描述&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="数据目录"><a href="#数据目录" class="headerlink" title="数据目录"></a>数据目录</h4>是层、域的关系合集展示<h3 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h3><h4 id="C-S、B-S"><a href="#C-S、B-S" class="headerlink" title="C/S、B/S"></a>C/S、B/S</h4>C/S : Client/Server , 客户端/服务器。传统的桌面级的应用程序，基于客户端的应用。<br>B/S : Browser/Server , 浏览器/服务器。web应用程序，基于浏览器的应用<br>区别：<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-attr">[1]</span> 语言：<br>     <span class="hljs-selector-tag">C</span>/<span class="hljs-selector-tag">S</span>: <span class="hljs-selector-tag">c</span>,<span class="hljs-selector-tag">c</span>++,<br>     <span class="hljs-selector-tag">B</span>/<span class="hljs-selector-tag">S</span>：<span class="hljs-selector-tag">java</span>,<span class="hljs-selector-tag">php</span>,<span class="hljs-selector-class">.Net</span>,<span class="hljs-selector-tag">js</span>,<span class="hljs-selector-tag">nodeJs</span><br><br><span class="hljs-selector-attr">[2]</span> 更新：<br>     <span class="hljs-selector-tag">C</span>/<span class="hljs-selector-tag">S</span>: 下载新版本的客户端，升级不大方便。<br>     <span class="hljs-selector-tag">B</span>/<span class="hljs-selector-tag">S</span>：热更新，永远都是最新的。<br><br><span class="hljs-selector-attr">[3]</span> 数据通信：<br>    <span class="hljs-selector-tag">C</span>/<span class="hljs-selector-tag">S</span>: 基于自定义的应用层协议<br>    <span class="hljs-selector-tag">B</span>/<span class="hljs-selector-tag">S</span>：基于<span class="hljs-selector-tag">http</span>协议，基于<span class="hljs-selector-tag">http</span>的服务器拿来就能用，<span class="hljs-selector-tag">nginx</span>，<span class="hljs-selector-tag">apache</span>，微软的<span class="hljs-selector-tag">IIS</span>这些<br><br><span class="hljs-selector-attr">[4]</span> 跨平台：<br>     <span class="hljs-selector-tag">C</span>/<span class="hljs-selector-tag">S</span>：开发时可能需要考虑跨平台问题(不同操作系统下)<br>     <span class="hljs-selector-tag">B</span>/<span class="hljs-selector-tag">S</span>：开发时跨平台方便，毕竟每个平台都有浏览器<br><span class="hljs-selector-attr">[5]</span> 数据处理：<br>     <span class="hljs-selector-tag">C</span>/<span class="hljs-selector-tag">S</span>: 支持离线，数据可以本地保存或处理.<br>     <span class="hljs-selector-tag">B</span>/<span class="hljs-selector-tag">S</span>： 支持云端，数据保存在云端，随时随地联网就能访问<br></code></pre></td></tr></table></figure></li>
+</ul>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/hadoop/">#hadoop</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【大数据】统一打包的名词备忘录</div>
+      <div>https://purecodefarmer.gitee.io/docs/hadoop-00/bigdata/hadoop/hadoop-00/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>JimmyShen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月29日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/docs/vmware-install/bigdata/software/vmware-install/" title="【大数据】用VMware搭建自己的虚拟机">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【大数据】用VMware搭建自己的虚拟机</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" title="【大数据】扒开Hadoop的外衣，窥探其中缘由">
+                        <span class="hidden-mobile">【大数据】扒开Hadoop的外衣，窥探其中缘由</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
