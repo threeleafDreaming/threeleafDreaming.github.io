@@ -219,8 +219,276 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/datax-01/bigdata/datax/datax-01/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl2.png" srcset="/blog/img/loading.gif" lazyload alt="【工具】Datax的基本概念（初识ETL工具）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/datax-01/bigdata/datax/datax-01/" target="_self">
+          【工具】Datax的基本概念（初识ETL工具）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/datax-01/bigdata/datax/datax-01/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲解Datax工具的概念，架构，以及部署使用说明  一、基础引导1、什么是ETLETL全称为Extract Transform Load，是一种数据仓库技术，其中三个英文单词分别对应三个数据处理操作的中文名称：抽取（Extract）、转换（Transform）以及加载（Load）。因此，ETL的实际含义是将数据经过抽取、清洗转换之后加载到数据仓库的过程。 2、Data
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-08 11:31" pubdate>
+              2022-09-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/datax/" class="category-chain-item">datax</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/bigdata-datax/">#bigdata,datax</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/sql-01/database/sql-01/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/15.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【数据库】Mysql、Oracle的年、月、日sql脚本">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/sql-01/database/sql-01/" target="_self">
+          【数据库】Mysql、Oracle的年、月、日sql脚本
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/sql-01/database/sql-01/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲解Mysql、Oracle的年、月、日sql脚本  一、Mysql1、当月数据1234567891011select a1.dayDate,convert(SUBSTRING(a1.dayDate,12,13),DECIMAL(10,0)) dayHour from(selectDATE_FORMAT(DATE_ADD(curdate(),interval -day
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-06 16:47" pubdate>
+              2022-09-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/database/" class="category-chain-item">database</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/mysql-oracle/">#mysql,oracle</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/shell-02/bigdata/shell/shell-02/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/15.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】HDFS、Hive、FTP的内网间的相互传递（附脚本获取数据）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/shell-02/bigdata/shell/shell-02/" target="_self">
+          【大数据】HDFS、Hive、FTP的内网间的相互传递（附脚本获取数据）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/shell-02/bigdata/shell/shell-02/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文讲解生产中会遇到的问题，一般集群都部署在外网，如果集群部署在内网，那么怎么同步之前的Hive数据到外网，或者两个内网间怎么同步Hive数据，本文主要以shell脚本演示。  一、前提内网间的网闸一般都有专门的公司运营，我们主要说怎么把数据存FTP，怎么从FTP取数据。重点：1、先在Hive库建好需要同步的表，表结构一致，表名可不一致2、如果原有Hive库有分区，则需要先建
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-24 22:22" pubdate>
+              2022-08-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/shell/" class="category-chain-item">shell</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/shell-ftp-hdfs/">#shell,ftp,hdfs</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hive-01/bigdata/hive/hive-01/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl4.png" srcset="/blog/img/loading.gif" lazyload alt="【大数据】Hadoop在呼唤Hive（附一键部署Hive脚本）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hive-01/bigdata/hive/hive-01/" target="_self">
+          【大数据】Hadoop在呼唤Hive（附一键部署Hive脚本）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hive-01/bigdata/hive/hive-01/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲解Hive部署到Hadoop集群并使用，结尾附一键部署Hive脚本  一、准备工作1、下载hiveHive下载地址本文以apache-hive-3.1.2-bin.tar.gz作为部署，可以自身需要选择版本 2、下载mysql的rpm包12345601_mysql-community-common-5.7.29-1.el7.x86_64.rpm02_mysql-co
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-22 22:09" pubdate>
+              2022-08-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hive/" class="category-chain-item">hive</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/bigdata-hive/">#bigdata,hive</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/blog/docs/power-desinger-01/tool/power-desinger-01/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/11.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【工具】powerdesigner生成excel文件（脚本）">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/13.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【工具】powerdesigner生成excel文件（脚本）">
         </a>
       </div>
     
@@ -259,7 +527,7 @@
     
       <span class="category-chain">
         
-  <a href="/blog/categories/powerdesinger-tool/" class="category-chain-item">powerdesinger,tool</a>
+  <a href="/blog/categories/tool/" class="category-chain-item">tool</a>
   
   
 
@@ -274,7 +542,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/powerdesinger-tool/">#powerdesinger,tool</a>
+              <a href="/blog/tags/tool-powerdesigner/">#tool,powerdesigner</a>
             
           </div>
         
@@ -287,7 +555,7 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/blog/docs/shell-01/bigdata/shell/shell-01/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/11.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】事半功倍的shell脚本">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl5.png" srcset="/blog/img/loading.gif" lazyload alt="【大数据】事半功倍的shell脚本">
         </a>
       </div>
     
@@ -488,7 +756,7 @@
     
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/blog/docs/cdh-01/bigdata/cdh/cdh-01/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/9.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】工欲善其大数据，必先利其CDH">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl6.png" srcset="/blog/img/loading.gif" lazyload alt="【大数据】工欲善其大数据，必先利其CDH">
         </a>
       </div>
     
@@ -527,7 +795,7 @@
     
       <span class="category-chain">
         
-  <a href="/blog/categories/cdh-%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">cdh,大数据</a>
+  <a href="/blog/categories/cdh/" class="category-chain-item">cdh</a>
   
   
 
@@ -542,7 +810,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/blog/tags/cdh-%E5%A4%A7%E6%95%B0%E6%8D%AE/">#cdh,大数据</a>
+              <a href="/blog/tags/cdh-bigdata/">#cdh,bigdata</a>
             
           </div>
         
@@ -617,279 +885,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】用VMware搭建自己的虚拟机">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
-          【大数据】用VMware搭建自己的虚拟机
-        </a>
-      </h1>
-
-      <a class="index-excerpt" href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
-        <div>
-          
-          汝之观览，吾之幸也！本文主要讲的是大数据最常使用的工具【VMware】的安装与新建虚拟机  一、下载所需软件【VMware-pro 15】下载，可加公众号【纯码农（purecodefarmer）】输入“vmware”即可获取下载链接【CentOS-7.5】下载，可加公众号【纯码农（purecodefarmer）】输入“centos”即可获取下载链接 网易镜像、搜狐镜像 二、新建虚拟机1、打开VM
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-08-01 14:02" pubdate>
-              2022-08-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/vmware/" class="category-chain-item">vmware</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/vmware/">#vmware</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/29.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】统一打包的名词备忘录">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
-          【大数据】统一打包的名词备忘录
-        </a>
-      </h1>
-
-      <a class="index-excerpt" href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
-        <div>
-          
-          汝之观览，吾之幸也！本文章主要统计大数据方面的名词概念，不至于一上来就看到那么多技术名词晕头转向。随时更新  一、LinuxLinux是一个操作系统，是在Unix基础上进行开发的。Linux的是林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）在大学期间在Unix做了磁盘驱动与文件系统，这些就成为了Linxu的内核。如果在内核上基础上加了软件，就会成为Linux的发行版
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-29 16:35" pubdate>
-              2022-07-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/hadoop/">#hadoop</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/1.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】扒开Hadoop的外衣，窥探其中缘由">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
-          【大数据】扒开Hadoop的外衣，窥探其中缘由
-        </a>
-      </h1>
-
-      <a class="index-excerpt" href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
-        <div>
-          
-          汝之观览，吾之幸也！“十四五”大数据产业规划，规划到2025年，大数据产业市场规模突破3万亿，大数据核心人才缺口高达230万，这是挑战，也是机遇。未来的方向大数据肯定占一席之地，所以从现在起自身也要转型才是。居安思危，才能游刃有余。  一、Hadoop的组成1、HDFS架构：（数据存储）存放在磁盘上（1）NameNode（nn）存储文件的元数据，如文件名、文件目录结构、文件属性（生成时间、副本数
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-29 10:51" pubdate>
-              2022-07-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/bigdata-hadoop/">#bigdata,hadoop</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
-          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】搭建Hadoop集群（附一键部署脚本）">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
-          【大数据】搭建Hadoop集群（附一键部署脚本）
-        </a>
-      </h1>
-
-      <a class="index-excerpt" href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
-        <div>
-          
-          汝之观览，吾之幸也！本文主要讲解Hadoop运行环境的搭建（三台虚拟机），一键脚本部署，全自动化，不再需要按照文档一个一个进行配置，脚本执行后就可登录hadoop集群。  [TOC] 一、最小安装CentOS如果使用Vmware安装虚拟机请看【大数据】用VMware搭建自己的虚拟机（选择最小安装，内存4G、磁盘50G） 最小安装好虚拟机后一般使用ifconfig 查看ip，但最小安装后是没有这个
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-07-29 10:51" pubdate>
-              2022-07-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/blog/categories/hadoop-shell/" class="category-chain-item">hadoop,shell</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/blog/tags/bigdata-hadoop-shell/">#bigdata,hadoop,shell</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/#board">2</a><a class="extend next" rel="next" href="/blog/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/#board">2</a><a class="page-number" href="/blog/page/3/#board">3</a><a class="extend next" rel="next" href="/blog/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 
