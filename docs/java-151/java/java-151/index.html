@@ -1,0 +1,744 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JimmyShen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="汝之观览，吾之幸也！本文主要摘抄Java代码的151的建议，让你的代码变得更加的优雅，从新手养成编写好代码的习惯。编写程序是一件优雅的事，所以要学习一些基本的代码规范。本文参考《编写高质量代码 改善Java程序的151个建议》，具体pdf可加公众号【纯码农（purecodefarmer）】输入“151”即可获取  一、代码准则1、不要在常量和变量中出现易混淆的字母2、莫让常量蜕变成变量3、三元操">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Java】恭喜你，你的代码获奖了（编写代码的151的建议）">
+<meta property="og:url" content="https://purecodefarmer.gitee.io/docs/java-151/java/java-151/index.html">
+<meta property="og:site_name" content="pureCodeFarmer">
+<meta property="og:description" content="汝之观览，吾之幸也！本文主要摘抄Java代码的151的建议，让你的代码变得更加的优雅，从新手养成编写好代码的习惯。编写程序是一件优雅的事，所以要学习一些基本的代码规范。本文参考《编写高质量代码 改善Java程序的151个建议》，具体pdf可加公众号【纯码农（purecodefarmer）】输入“151”即可获取  一、代码准则1、不要在常量和变量中出现易混淆的字母2、莫让常量蜕变成变量3、三元操">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl19.png">
+<meta property="article:published_time" content="2022-10-11T12:47:45.000Z">
+<meta property="article:modified_time" content="2024-02-22T02:38:15.318Z">
+<meta property="article:author" content="JimmyShen">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl19.png">
+  
+  
+  
+  <title>【Java】恭喜你，你的代码获奖了（编写代码的151的建议） - pureCodeFarmer</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":"https://1epgvtla.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>纯码农的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【Java】恭喜你，你的代码获奖了（编写代码的151的建议）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-10-11 20:47" pubdate>
+          2022年10月11日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          24 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【Java】恭喜你，你的代码获奖了（编写代码的151的建议）</h1>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
+<p>汝之观览，吾之幸也！本文主要摘抄Java代码的151的建议，让你的代码变得更加的优雅，从新手养成编写好代码的习惯。<br>编写程序是一件优雅的事，所以要学习一些基本的代码规范。本文参考《编写高质量代码 改善Java程序的151个建议》，<br>具体pdf可加公众号【纯码农（purecodefarmer）】输入“151”即可获取</p>
+</blockquote>
+<h3 id="一、代码准则"><a href="#一、代码准则" class="headerlink" title="一、代码准则"></a>一、代码准则</h3><p>1、不要在常量和变量中出现易混淆的字母<br>2、莫让常量蜕变成变量<br>3、三元操作符的类型务必一致<br>4、避免带有变长参数的方法重载<br>5、别让null值和空值威胁到变长方法<br>6、覆写变长方法也要循规蹈矩<br>7、警惕自增的陷阱<br>8、不要让旧语法困扰你<br>9、少用静态导入<br>10、不要在本类中覆盖静态导入的变量和方法<br>11、养成良好的习惯，显式声明UID<br>12、避免用序列化类在构造函数中为不变量赋值<br>13、避免为final变量复杂赋值<br>14、使用序列化类的私有方法巧妙解决部分属性持久化问题<br>15、break万万不可忘<br>16、易变业务使用脚本语言编写<br>17、慎用动态编译<br>18、避免instanceof非预期结果<br>19、断言绝对不是鸡肋<br>20、不要只替换一个类</p>
+<h3 id="二、基本类型"><a href="#二、基本类型" class="headerlink" title="二、基本类型"></a>二、基本类型</h3><p>21、用偶判断、不用奇判断<br>22、用整数类型处理货币<br>23、不要让类型默默转换<br>24、边界，边界，还是边界<br>25、不要让四舍五入亏了一方<br>26、提防包装类型的null值<br>27、谨慎包装类型的大小比较<br>28、优先使用整型池<br>29、优先选择基本数据类型<br>30、不要随便设置随机数种子</p>
+<h3 id="三、类、对象与方法"><a href="#三、类、对象与方法" class="headerlink" title="三、类、对象与方法"></a>三、类、对象与方法</h3><p>31、在接口中不要存在实现代码<br>32、静态变量一定要先声明，后赋值<br>33、不要覆写静态方法<br>34、构造函数尽量简化<br>35、避免在构造函数中初始化其他类<br>36、使用构造代码块精炼程序<br>37、使用静态内部类提高封装性<br>38、使用静态内部类提高封装性<br>39、使用匿名内部类的构造函数<br>40、匿名类的构造方法很特殊<br>41、让多重继承成为现实<br>42、让工具类不可实例化<br>43、避免对象的浅拷贝<br>44、推荐使用序列化实现对象的拷贝<br>45、重写equals方法时不要识别不出自己<br>46、重写equals应该考虑null<br>47、在equals中使用getclass进行类型判断<br>48、重写equals方法必须重写hashcode方法<br>49、推荐重写tostring<br>50、使用package-info类为包服务<br>51、不要主动进行垃圾回收</p>
+<h3 id="四、字符串"><a href="#四、字符串" class="headerlink" title="四、字符串"></a>四、字符串</h3><p>52、推荐使用string直接量赋值<br>53、注意方法中传递的参数要求<br>54、正确使用string、stringbuffer、stringbuilder<br>55、注意字符串的位置<br>56、选择适当的字符串拼接方法<br>57、推荐在复杂字符串操作中使用正则表达式<br>58、统一编码<br>59、对字符串排序持一种宽容的心态</p>
+<h3 id="五、数组与集合"><a href="#五、数组与集合" class="headerlink" title="五、数组与集合"></a>五、数组与集合</h3><p>60、性能考虑，数组是首选<br>61、若有必要，使用可变数组<br>62、警惕数组的浅拷贝<br>63、在明确的场景下，为集合指定初始容量<br>64、多种最值算法，实时选择<br>65、避开基本类型数组转换列表陷阱<br>66、aslist方法产生的list对象不可更改<br>67、不同的列表选择不同的遍历方法<br>68、频繁插入和删除时使用linkedlist<br>69、列表相等只需关心元素数据<br>70、子列表只是原列表的一个视图<br>71、推荐使用sublist处理局部列表<br>72、生成子列表后不要再操作原列表(sublist)<br>73、使用Comparator进行排序<br>74、不推荐使用binarySearch对列表进行检索<br>75、集合中的元素必须做到compareTo和equals同步<br>76、集合运算时使用更优雅的方式<br>77、使用shuffle打乱列表<br>78、减少hashmap中元素的数量<br>79、集合汇总的哈希码不要重复<br>80、多线程使用vector 、hashtable<br>81、非稳定排序推荐使用list<br>82、有点及面，一叶知秋-集合大家族</p>
+<h3 id="六、枚举与注解"><a href="#六、枚举与注解" class="headerlink" title="六、枚举与注解"></a>六、枚举与注解</h3><p>83、推荐使用枚举定义常量<br>84、使用构造函数协助描述枚举项add code<br>85、小心switch带来的空值异常<br>86、在switch的default代码快中增加assertionerror错误<br>87、使用valueof前必须校验<br>88、用枚举实现工厂方法模式更简洁<br>89、枚举项的数量限制在64个以内<br>90、小心使用注解<br>91、枚举和注解结合使用威力更大<br>92、注意@override不同版本的区别</p>
+<h3 id="七、泛型与反射"><a href="#七、泛型与反射" class="headerlink" title="七、泛型与反射"></a>七、泛型与反射</h3><p>93、java的泛型是类型擦除的<br>94、不能初始化泛型参数和数组<br>95、强制声明泛型的实际类型<br>96、不同的场景使用不同的泛型通配符<br>97、警惕泛型是不能协变和逆变的<br>98、建议采用的顺序是List<T> List&lt;?&gt; List<Object><br>99、严格限定泛型类型采用多重界限<br>100、数组的真实类型必须是泛型类型的子类型<br>101、注意Class类的特殊性<br>102、实时选择getDeclaredMethod和getMethod<br>103、反射访问属性或者方法时将accessible设置为true<br>104、使用forName动态加载类文件<br>105、动态加载不适合数组<br>106、动态代理可以使代理模式更加灵活<br>107、动态代理可以使装饰者模式更加灵活<br>108、反射让模块方法模式更强大<br>109、不需要太多关注反射效率</Object></T></p>
+<h3 id="八、异常"><a href="#八、异常" class="headerlink" title="八、异常"></a>八、异常</h3><p>110、提倡异常封装<br>111、采用异常链传递参数<br>112、受检异常尽可能转化为非受检异常<br>113、不要在finally块中处理返回值<br>114、不要在构造函数中抛出异常<br>115、使用throwable获得栈信息<br>116、异常只为异常服务<br>117、多使用异常，把性能问题放一边</p>
+<h3 id="九、多线程与并发"><a href="#九、多线程与并发" class="headerlink" title="九、多线程与并发"></a>九、多线程与并发</h3><p>118、不推荐覆写start方法<br>119、启动线程前stop方法是不可靠的<br>120、不使用stop方法停止线程<br>121、线程优先级只使用三个等级<br>122、使用线程异常处理器提升系统可靠性<br>123、volatile不能保证数据同步<br>124、异步运算考虑使用callable接口<br>125、优先选择线程池<br>126、适时选择不同的线程池来实现<br>127、lock于synchronized是不一样的<br>128、预防线程死锁<br>129、适当设置阻塞队列长度<br>130、使用countdownlatch协调自线程<br>131、cyclicbarrier让多线程齐步走</p>
+<h3 id="十、性能与效率"><a href="#十、性能与效率" class="headerlink" title="十、性能与效率"></a>十、性能与效率</h3><p>132、提升java性能的基本方法<br>133、若非必要，不要克隆对象<br>134、推荐使用望闻问切的方式诊断性能<br>135、必须定义性能衡量标准<br>136、枪打出头鸟–解决首要系统性能问题<br>137、调整jvm参数以提升性能<br>138、性能是个大‘咕咚’</p>
+<h3 id="十一、开源世界"><a href="#十一、开源世界" class="headerlink" title="十一、开源世界"></a>十一、开源世界</h3><p>139、大胆采用开源工具<br>140、推荐使用guava扩展工具包<br>141、apache扩展包<br>142、推荐使用joda日期时间扩展包<br>143、可以选择多种collections扩展</p>
+<h3 id="十二、思想为源"><a href="#十二、思想为源" class="headerlink" title="十二、思想为源"></a>十二、思想为源</h3><p>144、提倡良好的代码风格<br>145、不要完全依靠单元测试来发现问题<br>146、让注释正确、清晰、简洁<br>147、让代码的职责保持单一<br>148、增强类的可替换性<br>149、依赖抽象而不是实现<br>150、抛弃7条不良的编码习惯<br>151、以技术员自律而不是工人</p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/java/" class="category-chain-item">java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/java/">#java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【Java】恭喜你，你的代码获奖了（编写代码的151的建议）</div>
+      <div>https://purecodefarmer.gitee.io/docs/java-151/java/java-151/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>JimmyShen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年10月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/docs/docker-01/tool/docker-01/" title="【工具】解放你的双手，看着就完了（Docker入门）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【工具】解放你的双手，看着就完了（Docker入门）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/docs/hive-02/bigdata/hive/hive-02/" title="【大数据】Hive的出生（懒着写MapReduce程序）">
+                        <span class="hidden-mobile">【大数据】Hive的出生（懒着写MapReduce程序）</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

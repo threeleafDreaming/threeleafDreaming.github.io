@@ -1,0 +1,1060 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JimmyShen">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="pureCodeFarmer">
+<meta property="og:url" content="https://purecodefarmer.gitee.io/page/5/index.html">
+<meta property="og:site_name" content="pureCodeFarmer">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="JimmyShen">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>pureCodeFarmer</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":"https://1epgvtla.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>纯码农的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Sometimes it is the very people who no one imagines anything of , who do the things that no one can imagine. --《模仿游戏》"></span>
+          
+        </div>
+
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】用VMware搭建自己的虚拟机">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
+          【大数据】用VMware搭建自己的虚拟机
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/vmware-install/bigdata/software/vmware-install/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲的是大数据最常使用的工具【VMware】的安装与新建虚拟机  一、下载所需软件【VMware-pro 15】下载，可加公众号【纯码农（purecodefarmer）】输入“vmware”即可获取下载链接【CentOS-7.5】下载，可加公众号【纯码农（purecodefarmer）】输入“centos”即可获取下载链接 网易镜像、搜狐镜像 二、新建虚拟机1、打开VM
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-01 14:02" pubdate>
+              2022-08-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/vmware/" class="category-chain-item">vmware</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/vmware/">#vmware</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl1.png" srcset="/blog/img/loading.gif" lazyload alt="【大数据】统一打包的名词备忘录">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
+          【大数据】统一打包的名词备忘录
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hadoop-00/bigdata/hadoop/hadoop-00/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文章主要统计大数据方面的名词概念，不至于一上来就看到那么多技术名词晕头转向。随时更新[TOC]  一、LinuxLinux是一个操作系统，是在Unix基础上进行开发的。Linux的是林纳斯·本纳第克特·托瓦兹（Linus Benedict Torvalds）在大学期间在Unix做了磁盘驱动与文件系统，这些就成为了Linxu的内核。如果在内核上基础上加了软件，就会成为Linu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-29 16:35" pubdate>
+              2022-07-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/hadoop/">#hadoop</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl3.png" srcset="/blog/img/loading.gif" lazyload alt="【大数据】扒开Hadoop的外衣，窥探其中缘由">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
+          【大数据】扒开Hadoop的外衣，窥探其中缘由
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hadoop-01/bigdata/hadoop/hadoop-01/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！“十四五”大数据产业规划，规划到2025年，大数据产业市场规模突破3万亿，大数据核心人才缺口高达230万，这是挑战，也是机遇。未来的方向大数据肯定占一席之地，所以从现在起自身也要转型才是。居安思危，才能游刃有余。  一、Hadoop的组成1、HDFS架构：（数据存储）存放在磁盘上（1）NameNode（nn）存储文件的元数据，如文件名、文件目录结构、文件属性（生成时间、副本数
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-29 10:51" pubdate>
+              2022-07-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/bigdata-hadoop/">#bigdata,hadoop</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据】搭建Hadoop集群（附一键部署脚本）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
+          【大数据】搭建Hadoop集群（附一键部署脚本）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hadoop-02/bigdata/hadoop/hadoop-02/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲解Hadoop运行环境的搭建（三台虚拟机），一键脚本部署，全自动化，不再需要按照文档一个一个进行配置，脚本执行后就可登录hadoop集群。  [TOC] 一、最小安装CentOS如果使用Vmware安装虚拟机请看【大数据】用VMware搭建自己的虚拟机（选择最小安装，内存4G、磁盘50G） 最小安装好虚拟机后一般使用ifconfig 查看ip，但最小安装后是没有这个
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-29 10:51" pubdate>
+              2022-07-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hadoop/" class="category-chain-item">hadoop</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/bigdata-hadoop-shell/">#bigdata,hadoop,shell</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/exam-type/exam/exam-type/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/1.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【软考】信息系统项目管理师-考试题型">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/exam-type/exam/exam-type/" target="_self">
+          【软考】信息系统项目管理师-考试题型
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/exam-type/exam/exam-type/" target="_self">
+        <div>
+          
+          计算机技术与软件专业技术资格位列人力资源社会保障部《国家职业资格目录》的58项专业技术资格之一，是唯一一个能通过考试取得高级职称的专业。公众号【纯码农（purecodefarmer）】输入”考试”获取《专业人员资格考试清单》《信息系统项目管理师教程-第四版（电子版）无水印.pdf》  一、综合知识总分：75分及格分：45分考试类型：选择题考试时间：150分钟题目数：75题包含知识点：IT知识（1
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-27 19:22" pubdate>
+              2022-07-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/exam/" class="category-chain-item">exam</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E8%BD%AF%E8%80%83-%E9%AB%98%E9%A1%B9/">#软考,高项</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/exam-part1/exam/part1/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【软考】信息系统项目管理师-信息化发展">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/exam-part1/exam/part1/" target="_self">
+          【软考】信息系统项目管理师-信息化发展
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/exam-part1/exam/part1/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要说明《信息系统项目管理师》第4版第一章内容  一、信息与信息化信息信息是物质，能量及其属性的标示的集合，是确定性的增加。以物质介质为载体，传递和反映世界各种事物存在方式、运动状态的表征信息不是物质，也不是能量 信息的定义：香农-信息是用来消除随机不定性的东西。 信息系统信息系统抽象模型：管理模型、信息处理模型、系统实现条件 信息系统生命周期：系统规划、系统分析（需求分
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-27 17:57" pubdate>
+              2022-07-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/exam/" class="category-chain-item">exam</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E8%BD%AF%E8%80%83-%E9%AB%98%E9%A1%B9/">#软考,高项</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/bigdata-dispatch/bigdata/dispatch/bigdata-dispatch/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/2.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【大数据调度】宙斯、赫拉女神、海豚的孰是孰非">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/bigdata-dispatch/bigdata/dispatch/bigdata-dispatch/" target="_self">
+          【大数据调度】宙斯、赫拉女神、海豚的孰是孰非
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/bigdata-dispatch/bigdata/dispatch/bigdata-dispatch/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！在如今的大数据调度系统中，有着一个又一个的名字出现，从伟大的宙斯（Zeus）到赫拉女神（hera）,还有横空出世的海豚（dolphinscheduler）。  一、宙斯（Zeus）Zeus是阿里巴巴开源的资源调度系统，在2014开源，但开源后未进行维护，目前已经在阿里巴巴开源项目中找不到了，网上也没有很少关于此项目的最新文档。暂不讨论，直接进行下一回。 二、赫拉女神（hera
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-22 15:58" pubdate>
+              2022-07-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/dispatch/" class="category-chain-item">dispatch</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/bigdata-DolphinScheduler/">#bigdata,DolphinScheduler</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/read-fivechange/read/read-fivechange/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/28.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【读书笔记】《5%的改变》">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/read-fivechange/read/read-fivechange/" target="_self">
+          【读书笔记】《5%的改变》
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/read-fivechange/read/read-fivechange/" target="_self">
+        <div>
+          
+          分享知识，让更多的人爱上读书。每周我会在公众号【纯码农（purecodefarmer）】免费赠送限量读书卡（樊登读书），输入“读书”即可获取，ps:在此声明，不是广告，仅仅是想更多人好读书，读好书，也希望遇到志同道合的人。读书卡数量有限，先到先得。  一、前言本书主要是以“问”、“答”、“反馈”、“复盘”四个步骤来讨论不同方面的问题，以简短简洁的语言回答每个人遇到的不同问题，再以当事人的反馈做最
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-07-19 10:18" pubdate>
+              2022-07-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/%E8%AF%BB%E4%B9%A6/" class="category-chain-item">读书</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/%E8%AF%BB%E4%B9%A6/">#读书</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/java-io/java/java-io/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/1.jpeg" srcset="/blog/img/loading.gif" lazyload alt="【Java】IO一进一出苦了谁">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/java-io/java/java-io/" target="_self">
+          【Java】IO一进一出苦了谁
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/java-io/java/java-io/" target="_self">
+        <div>
+          
+          汝之观览，吾之幸也！本文主要讲解Java IO流，通过IO流的历史、概念、分类到如何使用IO流详细说明。  一、IO的历史今天我们开始了解下Java的一些知识，首先从我们的IO开始，先说下IO的发展历史，从BIO–&gt;NIO–&gt;AIO，请看下图  以生活中的烧开水为例子: BIO 同步阻塞（blocking I&#x2F;O）就是一直监测某个水壶，等该水壶开了再去监测下一个； NIO 同步非阻塞
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-22 16:41" pubdate>
+              2022-06-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/java/" class="category-chain-item">java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/java-io/">#java,io</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/blog/docs/hexo-picgo-oss/hexo/picgo-oss/" target="_self">
+          <img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/29.jpeg" srcset="/blog/img/loading.gif" lazyload alt="花钱的图片服务就是好用哈（picGo+阿里云OSS）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/blog/docs/hexo-picgo-oss/hexo/picgo-oss/" target="_self">
+          花钱的图片服务就是好用哈（picGo+阿里云OSS）
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/blog/docs/hexo-picgo-oss/hexo/picgo-oss/" target="_self">
+        <div>
+          
+          接上一篇让你一篇文章走天下（SM.MS的妙用）,虽然SM.MS还是不错的，但是将文章发布到其他平台时，会出现获取不到图片的问题，如简书，公众号等，试了下，使用SM.MS是可以在知乎上正常使用的上篇文章。但为了保持各平台都可以通用，所以狠心买了OSS服务（心疼那几十块）。 一、注册阿里云账号并创建子账号赋权可自行注册阿里云账号，也可以使用淘宝，钉钉登录。注册好阿里云账号可设置RAM子账号，一般使用子
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-06-20 16:06" pubdate>
+              2022-06-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/hexo/" class="category-chain-item">hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/blog/tags/hexo-picgo-oss/">#hexo,picgo,oss</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/blog/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/blog/">1</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/3/#board">3</a><a class="page-number" href="/blog/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/blog/page/6/#board">6</a><a class="extend next" rel="next" href="/blog/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

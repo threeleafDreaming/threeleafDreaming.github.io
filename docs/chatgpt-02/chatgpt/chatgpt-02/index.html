@@ -1,0 +1,747 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JimmyShen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="汝之观览，吾之幸也！本文主要聊聊怎样才能更好的使用提示词，给开发提速，大大缩减我们的开发时间，比如在开发中使用生成表结构脚本的提示词，生成代码的提示词等等。  一、准备本文主要根据Claude进行演示，关于如何使用Claude技术（主要是免费），请参考文章【大数据模型】使用Claude浅试一下，也可使用其他大数据模型的产品，如百度的文心一言，有阿里的通义千问，也有复旦大学的MOSS、科大讯飞星火">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【大数据模型】让chatgpt为开发增速（开发专用提示词）">
+<meta property="og:url" content="https://purecodefarmer.gitee.io/docs/chatgpt-02/chatgpt/chatgpt-02/index.html">
+<meta property="og:site_name" content="pureCodeFarmer">
+<meta property="og:description" content="汝之观览，吾之幸也！本文主要聊聊怎样才能更好的使用提示词，给开发提速，大大缩减我们的开发时间，比如在开发中使用生成表结构脚本的提示词，生成代码的提示词等等。  一、准备本文主要根据Claude进行演示，关于如何使用Claude技术（主要是免费），请参考文章【大数据模型】使用Claude浅试一下，也可使用其他大数据模型的产品，如百度的文心一言，有阿里的通义千问，也有复旦大学的MOSS、科大讯飞星火">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl18.png">
+<meta property="article:published_time" content="2023-05-16T09:36:35.000Z">
+<meta property="article:modified_time" content="2024-02-22T02:38:15.318Z">
+<meta property="article:author" content="JimmyShen">
+<meta property="article:tag" content="chatgpt">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl18.png">
+  
+  
+  
+  <title>【大数据模型】让chatgpt为开发增速（开发专用提示词） - pureCodeFarmer</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":"https://1epgvtla.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>纯码农的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【大数据模型】让chatgpt为开发增速（开发专用提示词）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-16 17:36" pubdate>
+          2023年5月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          43 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【大数据模型】让chatgpt为开发增速（开发专用提示词）</h1>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
+<p>汝之观览，吾之幸也！本文主要聊聊怎样才能更好的使用提示词，给开发提速，大大缩减我们的开发时间，比如在开发中使用生成表结构脚本的提示词，生成代码的提示词等等。</p>
+</blockquote>
+<h3 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h3><p>本文主要根据Claude进行演示，关于如何使用Claude技术（主要是免费），请参考文章<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37172770/article/details/130710134?spm=1001.2014.3001.5501">【大数据模型】使用Claude浅试一下</a><br>，也可使用其他大数据模型的产品，如百度的<a target="_blank" rel="noopener" href="https://yiyan.baidu.com/welcome">文心一言</a>，有阿里的<a href="tongyi.aliyun.com">通义千问</a>，也有复旦大学的<a target="_blank" rel="noopener" href="https://moss.fastnlp.top/">MOSS</a>、科大讯飞<a target="_blank" rel="noopener" href="https://xinghuo.xfyun.cn/desk">星火大模型</a>等等，有条件的可以使用ChatGpt，会更准确。</p>
+<h3 id="二、输出sql脚本"><a href="#二、输出sql脚本" class="headerlink" title="二、输出sql脚本"></a>二、输出sql脚本</h3><h4 id="1、输出建表语句"><a href="#1、输出建表语句" class="headerlink" title="1、输出建表语句"></a>1、输出建表语句</h4><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs sqf">请你担任mysql建表设计师，我将与你进行对话，我将输入字段，你根据字段生成一张mysql的表，以下是建表的一些要求<br>【强制】表名满足要求,以illp开头。<br>【强制】数据库表字段必须有注释，主键不加注释。<br>【强制】名称只能含有字母，数字和下划线“_”三类字符。<br>【强制】表名要避免使用关键字<br>【强制】命名应采用能够准确反映其中文含义的英文单词或英文单词的缩写构成，避免出现英文单词和汉语拼音混用的情况。如果英文单词已定义了缩写，应该用缩写<br>【推荐】在不同位置出现的、表示相同含义及内容的字段名称命名应该一致。<br>后缀名参考<br>表分类	命名要求<br>关系表	以<span class="hljs-variable">_rel</span>结尾<br>属性表	以<span class="hljs-variable">_attr</span>结尾<br>历史表	以<span class="hljs-variable">_his</span>结尾<br>日志表	以<span class="hljs-variable">_log</span>结尾<br>对照表	以<span class="hljs-variable">_map</span>结尾<br>规则表	以<span class="hljs-variable">_rul</span>结尾<br>配置表	以<span class="hljs-variable">_cfg</span>结尾<br>以下是一些特别的前后缀，代表了这个字段特殊的含义。在其他的情况，应避免使用以下的前后缀：<br><br>前后缀	定义<br><span class="hljs-variable">_desc</span>	参数表内的描叙字段 如字段名是offer_desc,表示销售品描述<br><span class="hljs-variable">_flag</span>	布尔型字段<br><span class="hljs-variable">_nbr</span>/no	编号字段<br><span class="hljs-variable">_num</span>/<span class="hljs-variable">_nbr</span>	号码字段<br><span class="hljs-variable">_id</span>	标识字段<br><span class="hljs-variable">_type</span>	类型字段，用来表示有类型含义的字段 如字段名是offer_type，表示销售品类型<br>is_	描述含有是否含义的字段,主数据值只有<span class="hljs-number">0</span>/<span class="hljs-number">1</span>或者N/Y两种情况，如is_default，表示是否默认 数据类型是char(<span class="hljs-number">1</span>)（N/Y）或者unsigned tinyint （<span class="hljs-number">1</span>表示是，<span class="hljs-number">0</span>表示否）。<br>【推荐】表常备字段：xxx_id, created_time,create_by<br>update_time,update_by表示主键、创建时间、创建人、更新时间、更新人。时间类型均为 datetime类型。<br><br>你只需要输出建表语句，在我输入字段的基础上其中加上创建时间、创建人、更新时间、更新人与id，其他什么都不要输出<br>我的第一个表是用户表<br>用户名称、用户编码、性别、身份证、手机号<br></code></pre></td></tr></table></figure>
+<p>输出后的数据如下,”illp_”是表前缀，可进行修改，DDL语句可做下加工处理</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> illp_user (<br>  id <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="hljs-string">&#x27;主键&#x27;</span>,<br>  user_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;用户名称&#x27;</span>,<br>  user_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;用户编码&#x27;</span>, <br>  gender TINYINT <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;性别&#x27;</span>,<br>  id_card <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">18</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;身份证&#x27;</span>,<br>  mobile <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;手机号&#x27;</span>,<br>  created_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>  created_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;创建人&#x27;</span>,<br>  updated_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>  updated_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> COMMENT <span class="hljs-string">&#x27;更新人&#x27;</span>,<br>  <span class="hljs-keyword">PRIMARY</span> KEY (id)<br>) COMMENT <span class="hljs-string">&#x27;用户表&#x27;</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/chatgpt%E5%BB%BA%E8%A1%A8%E8%AF%AD%E5%8F%A5.png" srcset="/blog/img/loading.gif" lazyload></p>
+<h4 id="2、输出mock数据的新增语句"><a href="#2、输出mock数据的新增语句" class="headerlink" title="2、输出mock数据的新增语句"></a>2、输出mock数据的新增语句</h4><p>在创建表结构后，开发需要一些数据进行测试接口，可直接输出mock数据，帮助快速的接口联调工作,<br>具体的数据要求可根据实际开发进行添加修改</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">请你担任mysql数据分析师，我将与你进行对话，我将输入表结构，你根据字段生成mock数据，<br>表结构如下<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> illp_user (<br>  id <span class="hljs-type">INT</span> <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> AUTO_INCREMENT <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;主键&#x27;</span>,<br>  user_name <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;用户名称&#x27;</span>,<br>  user_code <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;用户编码&#x27;</span>, <br>  gender TINYINT <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;性别&#x27;</span>,<br>  id_card <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">18</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;身份证&#x27;</span>,<br>  mobile <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;手机号&#x27;</span>,<br>  created_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;创建时间&#x27;</span>,<br>  created_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;创建人&#x27;</span>,<br>  updated_time DATETIME <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;更新时间&#x27;</span>,<br>  updated_by <span class="hljs-type">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span> <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;更新人&#x27;</span>,<br>  <span class="hljs-keyword">PRIMARY KEY</span> (id)<br>) <span class="hljs-keyword">COMMENT</span> <span class="hljs-string">&#x27;用户表&#x27;</span>;<br>输出<span class="hljs-number">10</span>条数据，输出的数据有以下要求：<br>【强制】创建人、更新人使用汉字，创建时间、更新时间使用now()<br></code></pre></td></tr></table></figure>
+<p>输出语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> illp_user (user_name, user_code, gender, id_card, mobile, created_time, created_by, updated_time, updated_by) <span class="hljs-keyword">VALUES</span><br>(<span class="hljs-string">&#x27;张三&#x27;</span>, <span class="hljs-string">&#x27;1001&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;110101199003077331&#x27;</span>, <span class="hljs-string">&#x27;13811111111&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>), <br>(<span class="hljs-string">&#x27;李四&#x27;</span>, <span class="hljs-string">&#x27;1002&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;110101199102087744&#x27;</span>, <span class="hljs-string">&#x27;13822222222&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;王五&#x27;</span>, <span class="hljs-string">&#x27;1003&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;110101199103067555&#x27;</span>, <span class="hljs-string">&#x27;13833333333&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;赵六&#x27;</span>, <span class="hljs-string">&#x27;1004&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;110101199104067666&#x27;</span>, <span class="hljs-string">&#x27;13844444444&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;孙七&#x27;</span>, <span class="hljs-string">&#x27;1005&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;110101199105072777&#x27;</span>, <span class="hljs-string">&#x27;13855555555&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;周八&#x27;</span>, <span class="hljs-string">&#x27;1006&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;110101199106017388&#x27;</span>, <span class="hljs-string">&#x27;13866666666&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>), <br>(<span class="hljs-string">&#x27;吴九&#x27;</span>, <span class="hljs-string">&#x27;1007&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;110101199107072899&#x27;</span>, <span class="hljs-string">&#x27;13877777777&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),  <br>(<span class="hljs-string">&#x27;郑十&#x27;</span>, <span class="hljs-string">&#x27;1008&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;110101199108037910&#x27;</span>, <span class="hljs-string">&#x27;13888888888&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;冯十一&#x27;</span>, <span class="hljs-string">&#x27;1009&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&#x27;110101199109051021&#x27;</span>, <span class="hljs-string">&#x27;13899999999&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>),<br>(<span class="hljs-string">&#x27;蒋十二&#x27;</span>, <span class="hljs-string">&#x27;1010&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&#x27;110101199110221011&#x27;</span>, <span class="hljs-string">&#x27;13800000000&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>, now(), <span class="hljs-string">&#x27;王五&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<p><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/chatgptmock%E6%95%B0%E6%8D%AE.png" srcset="/blog/img/loading.gif" lazyload></p>
+<h4 id="3、将接口数据输出到表中，数据迁移mock"><a href="#3、将接口数据输出到表中，数据迁移mock" class="headerlink" title="3、将接口数据输出到表中，数据迁移mock"></a>3、将接口数据输出到表中，数据迁移mock</h4><p>在开发阶段，有些原始数据无法得到，只能获取到其他系统的接口数据，为了开发方便，可通过以下方式将接口数据<br>输出到表中</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">[<br>        &#123;<br>            &quot;id&quot;: &quot;1682064228009291777&quot;,<br>            &quot;businessType&quot;: <span class="hljs-number">2</span>,<br>            &quot;dictCode&quot;: &quot;DICT_CODE_1495695289843849946&quot;,<br>            &quot;parentTypeId&quot;: <span class="hljs-number">0</span>,<br>            &quot;typeId&quot;: &quot;1495695289843849945&quot;,<br>            &quot;dictKey&quot;: &quot;不推送消息&quot;,<br>            &quot;dictValue&quot;: &quot;1&quot;,<br>            &quot;dictParam&quot;: <span class="hljs-number">0</span>,<br>            &quot;projectCode&quot;: &quot;ZH_00015_XM_00000001&quot;,<br>            &quot;map&quot;: <span class="hljs-keyword">null</span><br>        &#125;<br>    ]<br>请将上述的<span class="hljs-type">json</span>数据转化为<span class="hljs-keyword">insert</span>语句，<span class="hljs-keyword">insert</span>语句中的&quot;#&#123;&#125;&quot;包含的值取自<span class="hljs-type">json</span>中对应的字段的值，<span class="hljs-keyword">insert</span>语句如下所示，<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> illp_inspection_policyconfig(bussiness_type,`<span class="hljs-keyword">type</span>`,<span class="hljs-type">name</span>,description,order_num,create_time,logic_del)<br><span class="hljs-keyword">values</span><br>(<span class="hljs-string">&#x27;#&#123;businessType&#125;&#x27;</span>,<span class="hljs-string">&#x27;#&#123;businessType&#125;&#x27;</span>,<span class="hljs-string">&#x27;#&#123;dictKey&#125;&#x27;</span>,<span class="hljs-string">&#x27;#&#123;dictKey&#125;&#x27;</span>,<span class="hljs-string">&#x27;#&#123;closeTypeName&#125;&#x27;</span>,<span class="hljs-string">&#x27;admin&#x27;</span>,<span class="hljs-string">&#x27;0&#x27;</span>)<br>请输出<span class="hljs-keyword">insert</span>语句，输出的<span class="hljs-keyword">values</span>用,分割,并且换行，只有一个<span class="hljs-keyword">values</span><br></code></pre></td></tr></table></figure>
+<p>输出语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> illp_inspection_policyconfig(bussiness_type,`type`,name,description,order_num,create_time,logic_del)<br><span class="hljs-keyword">values</span><br>(<span class="hljs-string">&#x27;2&#x27;</span>,<span class="hljs-string">&#x27;2&#x27;</span>,<span class="hljs-string">&#x27;不推送消息&#x27;</span>,<span class="hljs-string">&#x27;不推送消息&#x27;</span>,<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;admin&#x27;</span>,<span class="hljs-string">&#x27;0&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/chatgpt%E6%8E%A5%E5%85%A5%E6%95%B0%E6%8D%AE.png" srcset="/blog/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/chatgpt/" class="category-chain-item">chatgpt</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/chatgpt/">#chatgpt</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【大数据模型】让chatgpt为开发增速（开发专用提示词）</div>
+      <div>https://purecodefarmer.gitee.io/docs/chatgpt-02/chatgpt/chatgpt-02/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>JimmyShen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月16日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/docs/leonardo-01/chatgpt/leonardo-01/" title="【大数据模型】LeonardoAi让心中所想跃然纸上">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【大数据模型】LeonardoAi让心中所想跃然纸上</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/docs/claude-01/chatgpt/claude-01/" title="【大数据模型】使用Claude浅试一下大数据模型">
+                        <span class="hidden-mobile">【大数据模型】使用Claude浅试一下大数据模型</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

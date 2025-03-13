@@ -1,0 +1,754 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/blog/img/fluid.png">
+  <link rel="icon" href="/blog/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="JimmyShen">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="汝之观览，吾之幸也！ 从本文开始讲下项目中用到的一些框架和技术，最基本的框架使用的是SpringBoot(2.5.10)+Mybatis-plus(3.5.3.2)+lombok(1.18.28)+knife4j(3.0.3)+hutool(5.8.21),可以做到代码自动生成，满足最基本的增删查改。  一、新建SpringBoot项目使用Idea工具直接创建项目 输入项目名称等生成web项目">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【SpringBoot】最基础的项目架构（SpringBoot+Mybatis-plus+lombok+knife4j+hutool）">
+<meta property="og:url" content="https://purecodefarmer.gitee.io/docs/springboot-01/spring/springboot-01/index.html">
+<meta property="og:site_name" content="pureCodeFarmer">
+<meta property="og:description" content="汝之观览，吾之幸也！ 从本文开始讲下项目中用到的一些框架和技术，最基本的框架使用的是SpringBoot(2.5.10)+Mybatis-plus(3.5.3.2)+lombok(1.18.28)+knife4j(3.0.3)+hutool(5.8.21),可以做到代码自动生成，满足最基本的增删查改。  一、新建SpringBoot项目使用Idea工具直接创建项目 输入项目名称等生成web项目">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl1.png">
+<meta property="article:published_time" content="2023-08-25T02:21:42.000Z">
+<meta property="article:modified_time" content="2024-02-22T02:38:15.318Z">
+<meta property="article:author" content="JimmyShen">
+<meta property="article:tag" content="springboot">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl1.png">
+  
+  
+  
+  <title>【SpringBoot】最基础的项目架构（SpringBoot+Mybatis-plus+lombok+knife4j+hutool） - pureCodeFarmer</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/blog/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/blog/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/blog/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"purecodefarmer.gitee.io","root":"/blog/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"1EpgvTLAa8717BroPmkKagQd-gzGzoHsz","app_key":"OHYpbldBmgGo2ByVKwC8yvMN","server_url":"https://1epgvtla.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/blog/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/blog/js/utils.js" ></script>
+  <script  src="/blog/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/blog/">
+      <strong>纯码农的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/blog/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/blog/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【SpringBoot】最基础的项目架构（SpringBoot+Mybatis-plus+lombok+knife4j+hutool）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-08-25 10:21" pubdate>
+          2023年8月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          26k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          220 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【SpringBoot】最基础的项目架构（SpringBoot+Mybatis-plus+lombok+knife4j+hutool）</h1>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
+<p>汝之观览，吾之幸也！ 从本文开始讲下项目中用到的一些框架和技术，最基本的框架使用的是SpringBoot(2.5.10)+Mybatis-plus(3.5.3.2)+lombok(1.18.28)+knife4j(3.0.3)+hutool(5.8.21),可以做到代码自动生成，满足最基本的增删查改。</p>
+</blockquote>
+<h3 id="一、新建SpringBoot项目"><a href="#一、新建SpringBoot项目" class="headerlink" title="一、新建SpringBoot项目"></a>一、新建SpringBoot项目</h3><p>使用Idea工具直接创建项目<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springboot%E6%96%B0%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE1.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p>输入项目名称等<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springboot%E6%96%B0%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE2.png" srcset="/blog/img/loading.gif" lazyload><br>生成web项目<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springboot%E6%96%B0%E5%BB%BAspringboot%E9%A1%B9%E7%9B%AE3.png" srcset="/blog/img/loading.gif" lazyload></p>
+<h3 id="二、配置pom"><a href="#二、配置pom" class="headerlink" title="二、配置pom"></a>二、配置pom</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-string">&lt;?xml</span> <span class="hljs-string">version=&quot;1.0&quot;</span> <span class="hljs-string">encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-string">&lt;project</span> <span class="hljs-string">xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="hljs-string">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br>         <span class="hljs-string">xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0</span> <span class="hljs-string">https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br>    <span class="hljs-string">&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br>    <span class="hljs-string">&lt;parent&gt;</span><br>        <span class="hljs-string">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br>        <span class="hljs-string">&lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</span><br>        <span class="hljs-string">&lt;version&gt;2.5.10&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;relativePath/&gt;</span> <span class="hljs-string">&lt;!--</span> <span class="hljs-string">lookup</span> <span class="hljs-string">parent</span> <span class="hljs-string">from</span> <span class="hljs-string">repository</span> <span class="hljs-string">--&gt;</span><br>    <span class="hljs-string">&lt;/parent&gt;</span><br>    <span class="hljs-string">&lt;groupId&gt;com.mitool&lt;/groupId&gt;</span><br>    <span class="hljs-string">&lt;artifactId&gt;springboot&lt;/artifactId&gt;</span><br>    <span class="hljs-string">&lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;</span><br>    <span class="hljs-string">&lt;name&gt;springboot&lt;/name&gt;</span><br>    <span class="hljs-string">&lt;description&gt;Demo</span> <span class="hljs-string">project</span> <span class="hljs-string">for</span> <span class="hljs-string">Spring</span> <span class="hljs-string">Boot&lt;/description&gt;</span><br>    <span class="hljs-string">&lt;properties&gt;</span><br>        <span class="hljs-string">&lt;java.version&gt;1.8&lt;/java.version&gt;</span><br>        <span class="hljs-string">&lt;mybatis-plus.version&gt;3.5.3.2&lt;/mybatis-plus.version&gt;</span><br>        <span class="hljs-string">&lt;freemarker.version&gt;2.3.29&lt;/freemarker.version&gt;</span><br>        <span class="hljs-string">&lt;lombok.version&gt;1.18.28&lt;/lombok.version&gt;</span><br>        <span class="hljs-string">&lt;knife4j.version&gt;3.0.3&lt;/knife4j.version&gt;</span><br>        <span class="hljs-string">&lt;hutool.version&gt;5.8.21&lt;/hutool.version&gt;</span><br>        <span class="hljs-string">&lt;pagehelper.version&gt;1.4.7&lt;/pagehelper.version&gt;</span><br>        <span class="hljs-string">&lt;ali.cola.version&gt;4.3.2&lt;/ali.cola.version&gt;</span><br>        <span class="hljs-string">&lt;org.mapstruct.version&gt;1.4.2.Final&lt;/org.mapstruct.version&gt;</span><br>    <span class="hljs-string">&lt;/properties&gt;</span><br>    <span class="hljs-string">&lt;dependencies&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;scope&gt;test&lt;/scope&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">mysql</span> <span class="hljs-string">链接--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;scope&gt;runtime&lt;/scope&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">mybatis-plus</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">Mybatis-plus</span> <span class="hljs-string">代码生成器</span> <span class="hljs-string">依赖配置</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;mybatis-plus-generator&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;mybatis-plus.version&#125;&lt;/version&gt;</span><br>            <span class="hljs-string">&lt;exclusions&gt;</span><br>                <span class="hljs-string">&lt;exclusion&gt;</span><br>                    <span class="hljs-string">&lt;groupId&gt;com.baomidou&lt;/groupId&gt;</span><br>                    <span class="hljs-string">&lt;artifactId&gt;mybatis-plus-extension&lt;/artifactId&gt;</span><br>                <span class="hljs-string">&lt;/exclusion&gt;</span><br>            <span class="hljs-string">&lt;/exclusions&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--freemarker依赖--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;org.freemarker&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;freemarker&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;freemarker.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">lombok</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;lombok.version&#125;&lt;/version&gt;</span><br>            <span class="hljs-string">&lt;scope&gt;provided&lt;/scope&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">knife4j</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;knife4j-spring-boot-starter&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;knife4j.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">hutool</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;cn.hutool&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;hutool-all&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;hutool.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">pagehelper</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;pagehelper.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;!--</span> <span class="hljs-string">阿里cola</span> <span class="hljs-string">--&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;com.alibaba.cola&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;cola-component-dto&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;ali.cola.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>        <span class="hljs-string">&lt;dependency&gt;</span><br>            <span class="hljs-string">&lt;groupId&gt;org.mapstruct&lt;/groupId&gt;</span><br>            <span class="hljs-string">&lt;artifactId&gt;mapstruct&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;version&gt;$&#123;org.mapstruct.version&#125;&lt;/version&gt;</span><br>        <span class="hljs-string">&lt;/dependency&gt;</span><br>    <span class="hljs-string">&lt;/dependencies&gt;</span><br><br>    <span class="hljs-string">&lt;build&gt;</span><br>        <span class="hljs-string">&lt;plugins&gt;</span><br>            <span class="hljs-string">&lt;plugin&gt;</span><br>                <span class="hljs-string">&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br>                <span class="hljs-string">&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br>            <span class="hljs-string">&lt;/plugin&gt;</span><br>            <span class="hljs-string">&lt;plugin&gt;</span><br>                <span class="hljs-string">&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br>                <span class="hljs-string">&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br>                <span class="hljs-string">&lt;version&gt;3.8.1&lt;/version&gt;</span><br>                <span class="hljs-string">&lt;configuration&gt;</span><br>                    <span class="hljs-string">&lt;source&gt;1.8&lt;/source&gt;</span><br>                    <span class="hljs-string">&lt;target&gt;1.8&lt;/target&gt;</span><br>                    <span class="hljs-string">&lt;annotationProcessorPaths&gt;</span><br>                        <span class="hljs-string">&lt;path&gt;</span><br>                            <span class="hljs-string">&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br>                            <span class="hljs-string">&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br>                            <span class="hljs-string">&lt;version&gt;$&#123;lombok.version&#125;&lt;/version&gt;</span><br>                        <span class="hljs-string">&lt;/path&gt;</span><br>                        <span class="hljs-string">&lt;path&gt;</span><br>                            <span class="hljs-string">&lt;groupId&gt;org.mapstruct&lt;/groupId&gt;</span><br>                            <span class="hljs-string">&lt;artifactId&gt;mapstruct-processor&lt;/artifactId&gt;</span><br>                            <span class="hljs-string">&lt;version&gt;$&#123;org.mapstruct.version&#125;&lt;/version&gt;</span><br>                        <span class="hljs-string">&lt;/path&gt;</span><br>                    <span class="hljs-string">&lt;/annotationProcessorPaths&gt;</span><br>                <span class="hljs-string">&lt;/configuration&gt;</span><br>            <span class="hljs-string">&lt;/plugin&gt;</span><br>        <span class="hljs-string">&lt;/plugins&gt;</span><br>    <span class="hljs-string">&lt;/build&gt;</span><br><br><span class="hljs-string">&lt;/project&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="三、配置application-properties"><a href="#三、配置application-properties" class="headerlink" title="三、配置application.properties"></a>三、配置application.properties</h3><h4 id="1、配置application-properties"><a href="#1、配置application-properties" class="headerlink" title="1、配置application.properties"></a>1、配置application.properties</h4><p>配置application.properties文件，文件中包含数据库配置、knife4j配置</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs text"># 应用名称<br>spring.application.name=spring-demo<br># 开发环境设置<br>spring.profiles.active=dev<br># 应用路径<br>server.servlet.context-path=/springboot<br># 编码字符集<br>server.servlet.encoding.charset=utf-8<br># swagger<br>knife4j.enable=true<br>knife4j.production=false<br>knife4j.basic.enable=false<br></code></pre></td></tr></table></figure>
+<h4 id="2、配置application-dev-properties"><a href="#2、配置application-dev-properties" class="headerlink" title="2、配置application-dev.properties"></a>2、配置application-dev.properties</h4><p>配置数据库，<br>localhost：数据库IP<br>db_source：数据库名称<br>username：用户名<br>password：密码</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs text"># 端口<br>server.port=9900<br>spring.datasource.url=jdbc:mysql://localhost:3306/db_source?serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false<br>spring.datasource.username=username<br>spring.datasource.password=password<br>spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver<br><br># SSO<br>zsc.open.token.check=false<br></code></pre></td></tr></table></figure>
+
+<h3 id="四、新建代码生成工具类-CodeGeneratorUtil"><a href="#四、新建代码生成工具类-CodeGeneratorUtil" class="headerlink" title="四、新建代码生成工具类 CodeGeneratorUtil"></a>四、新建代码生成工具类 CodeGeneratorUtil</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mitool.springboot.utils;<br><span class="hljs-keyword">import</span> cn.hutool.core.io.FileUtil;<br><span class="hljs-keyword">import</span> cn.hutool.core.util.StrUtil;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.exceptions.MybatisPlusException;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.core.mapper.BaseMapper;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.extension.service.IService;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.generator.FastAutoGenerator;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.generator.config.DataSourceConfig;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.generator.config.InjectionConfig;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;<br><span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.Scanner;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * &lt;p&gt;Title: CodeGeneratorUtil&lt;/p&gt;</span><br><span class="hljs-comment"> * &lt;p&gt;Description:</span><br><span class="hljs-comment"> * 描述：mybatis-plus 自动生成代码工具类</span><br><span class="hljs-comment"> * &lt;/p&gt;</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Jimmy.Shen</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> v1.0.0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2022-10-19 9:58</span><br><span class="hljs-comment"> */</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">CodeGeneratorUtil</span> &#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 表前缀</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String[] PREFIX = <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>[]&#123;<span class="hljs-string">&quot;illp_&quot;</span>, <span class="hljs-string">&quot;t_&quot;</span>&#125;;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 是否生成controller、service、serviceImpl、converter</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">boolean</span> <span class="hljs-variable">ONLY_UPDATE_COLUMNS</span> <span class="hljs-operator">=</span> <span class="hljs-literal">true</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 数据源配置</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> DataSourceConfig.<span class="hljs-type">Builder</span> <span class="hljs-variable">DATA_SOURCE_CONFIG</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">DataSourceConfig</span><br>            .Builder(<span class="hljs-string">&quot;jdbc:mysql://10.10.177.151:3309/smart_park?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8&amp;nullCatalogMeansCurrent=true&quot;</span>,<br>            <span class="hljs-string">&quot;root&quot;</span>, <span class="hljs-string">&quot;ztesoft&quot;</span>);<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 读取控制台内容</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> String <span class="hljs-title function_">scanner</span><span class="hljs-params">(String tip)</span> &#123;<br>        <span class="hljs-type">Scanner</span> <span class="hljs-variable">scanner</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Scanner</span>(System.in);<br>        log.info(<span class="hljs-string">&quot;### 请输入&quot;</span> + tip);<br>        <span class="hljs-keyword">if</span> (scanner.hasNext()) &#123;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">ipt</span> <span class="hljs-operator">=</span> scanner.next();<br>            <span class="hljs-keyword">if</span> (StrUtil.isNotEmpty(ipt)) &#123;<br>                <span class="hljs-keyword">return</span> ipt;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MybatisPlusException</span>(<span class="hljs-string">&quot;请输入正确的&quot;</span> + tip + <span class="hljs-string">&quot;！&quot;</span>);<br>    &#125;<br><br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">projectPath</span> <span class="hljs-operator">=</span> System.getProperty(<span class="hljs-string">&quot;user.dir&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">outputDir</span> <span class="hljs-operator">=</span> projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/&quot;</span>;<br>        String[] scannerArr = scanner(<span class="hljs-string">&quot;作者名,包名,表名&quot;</span>).split(<span class="hljs-string">&quot;,&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">authorName</span> <span class="hljs-operator">=</span> scannerArr[<span class="hljs-number">0</span>];<br>        <span class="hljs-type">String</span> <span class="hljs-variable">packageName</span> <span class="hljs-operator">=</span> scannerArr[<span class="hljs-number">1</span>];<br>        <span class="hljs-type">String</span> <span class="hljs-variable">tableName</span> <span class="hljs-operator">=</span> scannerArr[<span class="hljs-number">2</span>];<br>        <span class="hljs-comment">// 规定代码路径，如果代码在不同项目中可进行调整</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">controllerName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/controller/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">serviceName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/service/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">serviceImplName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/service/&quot;</span> + packageName + <span class="hljs-string">&quot;/impl/&quot;</span>;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">entityName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/entity/dataobject/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">mapperName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/mapper/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">mapperXmlName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/resources/mybatis-mapper/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">voName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/entity/vo/&quot;</span> + packageName;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">converterName</span> <span class="hljs-operator">=</span><br>                projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/mitool/springboot/converter/&quot;</span> + packageName;<br>        FastAutoGenerator.create(DATA_SOURCE_CONFIG)<br>                <span class="hljs-comment">// 全局配置</span><br>                .globalConfig(builder -&gt;<br>                        <span class="hljs-comment">//作者名</span><br>                        builder.author(authorName)<br>                                <span class="hljs-comment">// 开启 swagger 模式	默认值:false</span><br>                                .enableSwagger()<br>                                <span class="hljs-comment">// 禁止打开输出目录	默认值:true</span><br>                                .disableOpenDir()<br>                                <span class="hljs-comment">// 指定输出目录</span><br>                                .outputDir(outputDir))<br>                .packageConfig(builder -&gt; builder.moduleName(packageName))<br>                .injectionConfig(builder -&gt; &#123;<br>                    updateColumn(entityName, mapperName, mapperXmlName, voName, builder);<br>                    <span class="hljs-keyword">if</span> (ONLY_UPDATE_COLUMNS) &#123;<br>                        updateTemplate(controllerName, serviceName, serviceImplName, converterName, builder);<br>                    &#125;<br>                &#125;)<br>                <span class="hljs-comment">//具体的生成文件的策略配置</span><br>                .strategyConfig(builder -&gt; &#123;<br>                    builder.addInclude(tableName.split(<span class="hljs-string">&quot;#&quot;</span>))<br>                            <span class="hljs-comment">// .enableSkipView()</span><br>                            .addTablePrefix(Arrays.asList(PREFIX))<br>                            .entityBuilder()<br>                            .enableFileOverride()<br>                            .enableLombok()<br>                            <span class="hljs-comment">// // controller</span><br>                            .controllerBuilder()<br>                            .enableRestStyle()<br>                            .formatFileName(<span class="hljs-string">&quot;%sController&quot;</span>)<br>                            .enableFileOverride()<br>                            <span class="hljs-comment">// service</span><br>                            .serviceBuilder()<br>                            .superServiceClass(IService.class)<br>                            .formatServiceFileName(<span class="hljs-string">&quot;%sService&quot;</span>)<br>                            .formatServiceImplFileName(<span class="hljs-string">&quot;%sServiceImpl&quot;</span>)<br>                            .enableFileOverride()<br>                            <span class="hljs-comment">//开启生成mapper</span><br>                            .mapperBuilder()<br>                            .enableBaseResultMap()<br>                            .enableBaseColumnList()<br>                            .superClass(BaseMapper.class)<br>                            .formatMapperFileName(<span class="hljs-string">&quot;%sMapper&quot;</span>)<br>                            .formatXmlFileName(<span class="hljs-string">&quot;%sXml&quot;</span>)<br>                            .enableFileOverride();<br><br>                &#125;)<br>                <span class="hljs-comment">//模板配置，如果你没有自定义的一些模板配置，这里直接使用默认即可。</span><br>                .templateConfig(config -&gt; config.entity(<span class="hljs-string">&quot;/templates/entity.java&quot;</span>))<br>                <span class="hljs-comment">//模板引擎配置</span><br>                .templateEngine(<span class="hljs-keyword">new</span> <span class="hljs-title class_">FreemarkerTemplateEngine</span>())<br>                .execute();<br><br>        <span class="hljs-comment">// 删除生成的自带的 baomidou代码</span><br>        FileUtil.del(projectPath + <span class="hljs-string">&quot;/springboot/src/main/java/com/baomidou&quot;</span>);<br>    &#125;<br><br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateColumn</span><span class="hljs-params">(String entityName, String mapperName, String mapperXmlName, String voName, InjectionConfig.Builder builder)</span> &#123;<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;DO.java&quot;</span>)<br>                .filePath(entityName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/entity.java.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;Mapper.java&quot;</span>)<br>                .filePath(mapperName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/mapper.java.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;Mapper.xml&quot;</span>)<br>                .filePath(mapperXmlName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/mapper.xml.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;VO.java&quot;</span>)<br>                .filePath(voName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/vo.java.ftl&quot;</span>));<br>    &#125;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">updateTemplate</span><span class="hljs-params">(String controllerName,</span><br><span class="hljs-params">                                       String serviceName, String serviceImplName,</span><br><span class="hljs-params">                                       String converterName, InjectionConfig.Builder builder)</span> &#123;<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;Controller.java&quot;</span>)<br>                .filePath(controllerName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/controller.java.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;Service.java&quot;</span>)<br>                .filePath(serviceName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/service.java.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;ServiceImpl.java&quot;</span>)<br>                .filePath(serviceImplName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/serviceImpl.java.ftl&quot;</span>));<br>        builder.customFile(consumer -&gt; consumer<br>                .fileName(<span class="hljs-string">&quot;AppConverter.java&quot;</span>)<br>                .filePath(converterName)<br>                .enableFileOverride()<br>                .templatePath(<span class="hljs-string">&quot;/templates/converter.java.ftl&quot;</span>));<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="五、模板（FreemarkerTemplate）"><a href="#五、模板（FreemarkerTemplate）" class="headerlink" title="五、模板（FreemarkerTemplate）"></a>五、模板（FreemarkerTemplate）</h3><p>模板文件放在resource/templates下</p>
+<h4 id="1、controller-java-ftl"><a href="#1、controller-java-ftl" class="headerlink" title="1、controller.java.ftl"></a>1、controller.java.ftl</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">package</span> com.mitool.springboot.controller.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;;<br><br><span class="hljs-keyword">import</span> com.mitool.springboot.utils.PageUtil;<br><span class="hljs-keyword">import</span> io.swagger.annotations.Api;<br><span class="hljs-keyword">import</span> io.swagger.annotations.ApiOperation;<br><span class="hljs-keyword">import</span> lombok.extern.slf4j.Slf4j;<br><span class="hljs-keyword">import</span> com.mitool.springboot.service.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;.$&#123;table.serviceName&#125;;<br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.dataobject.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;.$&#123;entity&#125;DO;<br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.vo.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;.$&#123;entity&#125;VO;<br><span class="hljs-keyword">import</span> com.mitool.springboot.converter.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;.$&#123;entity&#125;AppConverter;<br><span class="hljs-keyword">import</span> com.alibaba.cola.dto.SingleResponse;<br><span class="hljs-keyword">import</span> com.github.pagehelper.PageHelper;<br><span class="hljs-keyword">import</span> com.github.pagehelper.PageInfo;<br>&lt;#<span class="hljs-keyword">if</span> superControllerClassPackage??&gt;<br>    <span class="hljs-keyword">import</span> $&#123;superControllerClassPackage&#125;;<br>&lt;/#<span class="hljs-keyword">if</span>&gt;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.GetMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.PostMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RequestBody;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RequestMapping;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RequestParam;<br><span class="hljs-keyword">import</span> org.springframework.web.bind.<span class="hljs-keyword">annotation</span>.RestController;<br><br><span class="hljs-keyword">import</span> javax.<span class="hljs-keyword">annotation</span>.Resource;<br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* &lt;p&gt;</span><br><span class="hljs-comment">* $&#123;table.comment!&#125; 前端控制器</span><br><span class="hljs-comment">* &lt;/p&gt;</span><br><span class="hljs-comment">*</span><br><span class="hljs-comment">* <span class="hljs-doctag">@author</span> $&#123;author&#125;</span><br><span class="hljs-comment">* <span class="hljs-doctag">@since</span> $&#123;date&#125;</span><br><span class="hljs-comment">*/</span><br><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@RestController</span><br><span class="hljs-meta">@RequestMapping(<span class="hljs-string">&quot;/api/&lt;#if controllerMappingHyphenStyle&gt;<span class="hljs-subst">$&#123;controllerMappingHyphen&#125;</span>&lt;#else&gt;<span class="hljs-subst">$&#123;table.entityPath&#125;</span>&lt;/#if&gt;&quot;</span>)</span><br><span class="hljs-meta">@Api(value = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>&quot;</span>, tags = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span> 管理模块&quot;</span>)</span><br>&lt;#<span class="hljs-keyword">if</span> superControllerClass??&gt;<br>    <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> $</span>&#123;table.controllerName&#125; extends $&#123;superControllerClass&#125; &#123;<br>&lt;#<span class="hljs-keyword">else</span>&gt;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> $</span>&#123;table.controllerName&#125; &#123;<br>&lt;/#<span class="hljs-keyword">if</span>&gt;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> $&#123;table.serviceName&#125; service;<br><br>    <span class="hljs-meta">@Resource</span><br>    <span class="hljs-keyword">private</span> $&#123;entity&#125;AppConverter converter;<br><br>    <span class="hljs-meta">@ApiOperation(value = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>分页查询&quot;</span>, notes = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>分页查询&quot;</span>)</span><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-string">&quot;/page&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; page(<span class="hljs-meta">@RequestParam</span> Integer pageIndex, <span class="hljs-meta">@RequestParam</span> Integer pageSize) &#123;<br>        PageHelper.startPage(pageIndex, pageSize);<br>        List&lt;$&#123;entity&#125;DO&gt; list = service.list();<br>        <span class="hljs-keyword">return</span> SingleResponse.of(PageUtil.pageInfoCopy(new PageInfo&lt;&gt;(list), $&#123;entity&#125;VO.<span class="hljs-keyword">class</span>, converter::toValueObject));<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(value = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>列表查询&quot;</span>, notes = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>列表查询&quot;</span>)</span><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-string">&quot;/list&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; list() &#123;<br>        List&lt;$&#123;entity&#125;DO&gt; list = service.list();<br>        <span class="hljs-keyword">return</span> SingleResponse.of(converter.toValueObject(list));<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(value = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>详情&quot;</span>, notes = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.comment!&#125;</span>详情&quot;</span>)</span><br>    <span class="hljs-meta">@GetMapping(<span class="hljs-string">&quot;/detail&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; detail(<span class="hljs-meta">@RequestParam</span> Integer id) &#123;<br>        <span class="hljs-keyword">return</span> SingleResponse.of(converter.toValueObject(service.getById(id)));<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(<span class="hljs-string">&quot;新增&quot;</span>)</span><br>    <span class="hljs-meta">@PostMapping(<span class="hljs-string">&quot;/save&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; save(<span class="hljs-meta">@RequestBody</span> $&#123;entity&#125;VO param) &#123;<br>        $&#123;entity&#125;DO dataObject = converter.toDataObject(param);<br>        service.save(dataObject);<br>        <span class="hljs-keyword">return</span> SingleResponse.buildSuccess();<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(<span class="hljs-string">&quot;更新&quot;</span>)</span><br>    <span class="hljs-meta">@PostMapping(<span class="hljs-string">&quot;/update&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; update(<span class="hljs-meta">@RequestBody</span> $&#123;entity&#125;VO param) &#123;<br>        $&#123;entity&#125;DO dataObject = converter.toDataObject(param);<br>        service.updateById(dataObject);<br>        <span class="hljs-keyword">return</span> SingleResponse.buildSuccess();<br>    &#125;<br><br>    <span class="hljs-meta">@ApiOperation(<span class="hljs-string">&quot;删除&quot;</span>)</span><br>    <span class="hljs-meta">@PostMapping(<span class="hljs-string">&quot;/remove&quot;</span>)</span><br>    <span class="hljs-keyword">public</span> SingleResponse&lt;?&gt; remove(<span class="hljs-meta">@RequestBody</span> $&#123;entity&#125;VO param) &#123;<br>        service.removeById(param.getId());<br>        <span class="hljs-keyword">return</span> SingleResponse.buildSuccess();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="2、converter-java-ftl"><a href="#2、converter-java-ftl" class="headerlink" title="2、converter.java.ftl"></a>2、converter.java.ftl</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs elixir">package com.mitool.springboot.converter.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;;<br><br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.dataobject.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>;<br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.vo.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span>;<br><br><span class="hljs-keyword">import</span> org.mapstruct.<span class="hljs-title class_">Mapper</span>;<br><br><span class="hljs-keyword">import</span> java.util.<span class="hljs-title class_">List</span>;<br><br>/**<br> * &lt;p&gt;<br> * <span class="hljs-variable">$&#123;</span>table.comment!&#125; app 模型转换服务<br> * &lt;/p&gt;<br> *<br> * <span class="hljs-variable">@author</span> <span class="hljs-variable">$&#123;</span>author&#125;<br> * <span class="hljs-variable">@since</span> <span class="hljs-variable">$&#123;</span>date&#125;<br> */<br><span class="hljs-variable">@Mapper</span>(componentModel = <span class="hljs-string">&quot;spring&quot;</span>)<br>public interface <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">AppConverter</span> &#123;<br><br>    <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span> toDataObject(<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span> <span class="hljs-variable">$&#123;</span>entity?uncap_first&#125;<span class="hljs-title class_">VO</span>);<br><br>    <span class="hljs-title class_">List</span>&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt; toDataObject(<span class="hljs-title class_">List</span>&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span>&gt; <span class="hljs-variable">$&#123;</span>entity?uncap_first&#125;<span class="hljs-title class_">VOList</span>);<br><br>    <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span> toValueObject(<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span> <span class="hljs-variable">$&#123;</span>entity?uncap_first&#125;<span class="hljs-title class_">DO</span>);<br><br>    <span class="hljs-title class_">List</span>&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span>&gt; toValueObject(<span class="hljs-title class_">List</span>&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt; <span class="hljs-variable">$&#123;</span>entity?uncap_first&#125;<span class="hljs-title class_">DOList</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="3、entity-java-ftl"><a href="#3、entity-java-ftl" class="headerlink" title="3、entity.java.ftl"></a>3、entity.java.ftl</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">package</span> com.mitool.springboot.entity.dataobject.$&#123;<span class="hljs-keyword">package</span>.ModuleName&#125;;<br><br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.<span class="hljs-keyword">annotation</span>.IdType;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.<span class="hljs-keyword">annotation</span>.TableId;<br><span class="hljs-keyword">import</span> com.baomidou.mybatisplus.<span class="hljs-keyword">annotation</span>.TableName;<br><span class="hljs-keyword">import</span> lombok.Data;<br><br><span class="hljs-keyword">import</span> java.io.Serializable;<br><span class="hljs-keyword">import</span> java.time.LocalDateTime;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment">* &lt;p&gt;</span><br><span class="hljs-comment"> * Title:$&#123;entity&#125;</span><br><span class="hljs-comment"> * &lt;/p&gt;</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * Description:描述：$&#123;table.comment&#125; 对象</span><br><span class="hljs-comment"> * &lt;/p&gt;</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> $&#123;author&#125;</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0.0</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> $&#123;date&#125;</span><br><span class="hljs-comment">**/</span><br><span class="hljs-meta">@Data</span><br><span class="hljs-meta">@TableName(<span class="hljs-string">&quot;<span class="hljs-subst">$&#123;table.name&#125;</span>&quot;</span>)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> $</span>&#123;entity&#125;DO implements Serializable &#123;<br><br>    <span class="hljs-keyword">private</span> static <span class="hljs-keyword">final</span> long serialVersionUID = <span class="hljs-number">1L</span>;<br>&lt;#-- ----------  BEGIN 字段循环遍历  ----------&gt;<br>&lt;#list table.fields <span class="hljs-keyword">as</span> field&gt;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * $&#123;field.comment&#125;</span><br><span class="hljs-comment">     */</span><br> &lt;#<span class="hljs-keyword">if</span> field.keyFlag&gt;<br>  &lt;#assign keyPropertyName=<span class="hljs-string">&quot;<span class="hljs-subst">$&#123;field.propertyName&#125;</span>&quot;</span>/&gt;<br>    <span class="hljs-meta">@TableId(value = <span class="hljs-string">&quot;<span class="hljs-subst">$&#123;field.name&#125;</span>&quot;</span>, type = IdType.AUTO)</span><br> &lt;/#<span class="hljs-keyword">if</span>&gt;<br>    <span class="hljs-keyword">private</span> $&#123;field.propertyType&#125; $&#123;field.propertyName&#125;;<br>&lt;/#list&gt;<br>&lt;#------------  END 字段循环遍历  ----------&gt;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="4、mapper-java-ftl"><a href="#4、mapper-java-ftl" class="headerlink" title="4、mapper.java.ftl"></a>4、mapper.java.ftl</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs elixir">package com.mitool.springboot.mapper.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;;<br><br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.dataobject.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-variable">$&#123;</span>superMapperClassPackage&#125;;<br>&lt;<span class="hljs-comment">#if mapperAnnotationClass??&gt;</span><br> <span class="hljs-keyword">import</span> <span class="hljs-variable">$&#123;</span>mapperAnnotationClass.name&#125;;<br>&lt;/<span class="hljs-comment">#if&gt;</span><br><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.<span class="hljs-title class_">Mapper</span>;<br><br>/**<br>* &lt;p&gt;<br> * <span class="hljs-variable">$&#123;</span>table.comment!&#125; <span class="hljs-title class_">Mapper</span> 接口<br> * &lt;/p&gt;<br> *<br> * <span class="hljs-variable">@author</span> <span class="hljs-variable">$&#123;</span>author&#125;<br> * <span class="hljs-variable">@since</span> <span class="hljs-variable">$&#123;</span>date&#125;<br> */<br>&lt;<span class="hljs-comment">#if mapperAnnotationClass??&gt;</span><br>@<span class="hljs-variable">$&#123;</span>mapperAnnotationClass.simpleName&#125;<br>&lt;/<span class="hljs-comment">#if&gt;</span><br>&lt;<span class="hljs-comment">#if kotlin&gt;</span><br>interface <span class="hljs-variable">$&#123;</span>table.mapperName&#125; : <span class="hljs-variable">$&#123;</span>superMapperClass&#125;&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt;<br>&lt;<span class="hljs-comment">#else&gt;</span><br><span class="hljs-variable">@Mapper</span><br>public interface <span class="hljs-variable">$&#123;</span>table.mapperName&#125; extends <span class="hljs-variable">$&#123;</span>superMapperClass&#125;&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt; &#123;<br><br>&#125;<br>&lt;/<span class="hljs-comment">#if&gt;</span><br><br></code></pre></td></tr></table></figure>
+<h4 id="5、mapper-xml-ftl"><a href="#5、mapper-xml-ftl" class="headerlink" title="5、mapper.xml.ftl"></a>5、mapper.xml.ftl</h4><figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span></span><br><span class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">mapper</span> <span class="hljs-keyword">PUBLIC</span> <span class="hljs-string">&quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;</span> <span class="hljs-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.mitool.springboot.mapper.$</span></span></span><span class="hljs-template-variable">&#123;package.ModuleName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">.$</span></span></span><span class="hljs-template-variable">&#123;table.mapperName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    &lt;#if enableCache&gt;</span><br><span class="language-xml">        <span class="hljs-comment">&lt;!-- 开启二级缓存 --&gt;</span></span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">cache</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;cacheClassName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">    &lt;/#if&gt;</span><br><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-comment">&lt;!-- 通用查询映射结果 --&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">resultMap</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;BaseResultMap&quot;</span></span></span><br><span class="hljs-tag"><span class="language-xml">               <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;com.mitool.springboot.entity.dataobject.$</span></span></span><span class="hljs-template-variable">&#123;package.ModuleName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">.$</span></span></span><span class="hljs-template-variable">&#123;entity&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">DO&quot;</span>&gt;</span></span><br><span class="language-xml">        &lt;#list table.fields as field&gt;</span><br><span class="language-xml">            &lt;#if field.keyFlag&gt;&lt;#--生成主键排在第一位--&gt;</span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">id</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.name&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.propertyName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">            &lt;/#if&gt;</span><br><span class="language-xml">        &lt;/#list&gt;</span><br><span class="language-xml">        &lt;#list table.commonFields as field&gt;&lt;#--生成公共字段 --&gt;</span><br><span class="language-xml">            <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.name&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.propertyName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>/&gt;</span></span><br><span class="language-xml">        &lt;/#list&gt;</span><br><span class="language-xml">        &lt;#list table.fields as field&gt;</span><br><span class="language-xml">            &lt;#if !field.keyFlag&gt;&lt;#--生成普通字段 --&gt;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">result</span> <span class="hljs-attr">column</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.name&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> <span class="hljs-attr">property</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;field.propertyName&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span> /&gt;</span></span><br><span class="language-xml">&lt;/#if&gt;</span><br><span class="language-xml">&lt;/#list&gt;</span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">resultMap</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"></span><br><span class="language-xml">&lt;#if baseColumnList&gt;</span><br><span class="language-xml">    <span class="hljs-comment">&lt;!-- 通用查询结果列 --&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">sql</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;Base_Column_List&quot;</span>&gt;</span></span><br><span class="language-xml">&lt;#list table.commonFields as field&gt;</span><br><span class="language-xml">        $</span><span class="hljs-template-variable">&#123;field.columnName&#125;</span><span class="language-xml">,</span><br><span class="language-xml">&lt;/#list&gt;</span><br><span class="language-xml">        $</span><span class="hljs-template-variable">&#123;table.fieldNames&#125;</span><span class="language-xml"></span><br><span class="language-xml">    <span class="hljs-tag">&lt;/<span class="hljs-name">sql</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml">&lt;/#if&gt;</span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span></span><br><span class="language-xml"></span><br></code></pre></td></tr></table></figure>
+<h4 id="6、service-java-ftl"><a href="#6、service-java-ftl" class="headerlink" title="6、service.java.ftl"></a>6、service.java.ftl</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs elixir">package com.mitool.springboot.service.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;;<br><br><span class="hljs-keyword">import</span> <span class="hljs-variable">$&#123;</span>superServiceClassPackage&#125;;<br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.dataobject.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>;<br><br>/**<br>* &lt;p&gt;<br> * <span class="hljs-variable">$&#123;</span>table.comment!&#125; 服务类<br> * &lt;/p&gt;<br>*<br>* <span class="hljs-variable">@author</span> <span class="hljs-variable">$&#123;</span>author&#125;<br>* <span class="hljs-variable">@since</span> <span class="hljs-variable">$&#123;</span>date&#125;<br>*/<br>&lt;<span class="hljs-comment">#if kotlin&gt;</span><br>interface <span class="hljs-variable">$&#123;</span>table.serviceName&#125; : <span class="hljs-variable">$&#123;</span>superServiceClass&#125;&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt;<br>&lt;<span class="hljs-comment">#else&gt;</span><br>public interface <span class="hljs-variable">$&#123;</span>table.serviceName&#125; extends <span class="hljs-variable">$&#123;</span>superServiceClass&#125;&lt;<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt; &#123;<br><br>&#125;<br>&lt;/<span class="hljs-comment">#if&gt;</span><br><br></code></pre></td></tr></table></figure>
+<h4 id="7、serviceImpl-java-ftl"><a href="#7、serviceImpl-java-ftl" class="headerlink" title="7、serviceImpl.java.ftl"></a>7、serviceImpl.java.ftl</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs elixir">package com.mitool.springboot.service.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.impl;<br><br><span class="hljs-keyword">import</span> com.mitool.springboot.mapper.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>table.mapperName&#125;;<br><span class="hljs-keyword">import</span> com.mitool.springboot.service.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>table.serviceName&#125;;<br><span class="hljs-keyword">import</span> com.mitool.springboot.entity.dataobject.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;.<span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>;<br><span class="hljs-keyword">import</span> <span class="hljs-variable">$&#123;</span>superServiceImplClassPackage&#125;;<br><span class="hljs-keyword">import</span> org.springframework.stereotype.<span class="hljs-title class_">Service</span>;<br><br>/**<br>* &lt;p&gt;<br> * <span class="hljs-variable">$&#123;</span>table.comment!&#125; 服务实现类<br> * &lt;/p&gt;<br>*<br>* <span class="hljs-variable">@author</span> <span class="hljs-variable">$&#123;</span>author&#125;<br>* <span class="hljs-variable">@since</span> <span class="hljs-variable">$&#123;</span>date&#125;<br> */<br><span class="hljs-variable">@Service</span><br>&lt;<span class="hljs-comment">#if kotlin&gt;</span><br>open class <span class="hljs-variable">$&#123;</span>table.serviceImplName&#125; : <span class="hljs-variable">$&#123;</span>superServiceImplClass&#125;&lt;<span class="hljs-variable">$&#123;</span>table.mapperName&#125;, <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt;(), <span class="hljs-variable">$&#123;</span>table.serviceName&#125; &#123;<br><br>&#125;<br>&lt;<span class="hljs-comment">#else&gt;</span><br>public class <span class="hljs-variable">$&#123;</span>table.serviceImplName&#125; extends <span class="hljs-variable">$&#123;</span>superServiceImplClass&#125;&lt;<span class="hljs-variable">$&#123;</span>table.mapperName&#125;, <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">DO</span>&gt; implements <span class="hljs-variable">$&#123;</span>table.serviceName&#125; &#123;<br><br>&#125;<br>&lt;/<span class="hljs-comment">#if&gt;</span><br><br></code></pre></td></tr></table></figure>
+<h4 id="8、vo-java-ftl"><a href="#8、vo-java-ftl" class="headerlink" title="8、vo.java.ftl"></a>8、vo.java.ftl</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs elixir">package com.mitool.springboot.entity.vo.<span class="hljs-variable">$&#123;</span>package.<span class="hljs-title class_">ModuleName</span>&#125;;<br><br>&lt;<span class="hljs-comment">#list table.importPackages as pkg&gt;</span><br>    &lt;<span class="hljs-comment">#if pkg?contains(&quot;baomidou&quot;)&gt;</span><br>    &lt;<span class="hljs-comment">#elseif pkg?contains(&quot;Serializable&quot;)&gt;</span><br>    &lt;<span class="hljs-comment">#else&gt;</span><br><span class="hljs-keyword">import</span> <span class="hljs-variable">$&#123;</span>pkg&#125;;<br>    &lt;/<span class="hljs-comment">#if&gt;</span><br>&lt;/<span class="hljs-comment">#list&gt;</span><br><span class="hljs-keyword">import</span> lombok.<span class="hljs-title class_">Data</span>;<br><span class="hljs-keyword">import</span> io.swagger.annotations.<span class="hljs-title class_">ApiModel</span>;<br><span class="hljs-keyword">import</span> io.swagger.annotations.<span class="hljs-title class_">ApiModelProperty</span>;<br><br>/**<br> * &lt;p&gt;<br> * <span class="hljs-variable">$&#123;</span>table.comment!&#125; 请求模型<br> * &lt;/p&gt;<br> *<br> * <span class="hljs-variable">@author</span> <span class="hljs-variable">$&#123;</span>author&#125;<br> * <span class="hljs-variable">@since</span> <span class="hljs-variable">$&#123;</span>date&#125;<br> */<br><span class="hljs-variable">@ApiModel</span>(value=<span class="hljs-string">&quot;$&#123;entity&#125;对象&quot;</span>, description=<span class="hljs-string">&quot;$&#123;table.comment!&#125;&quot;</span>)<br><span class="hljs-variable">@Data</span><br>public class <span class="hljs-variable">$&#123;</span>entity&#125;<span class="hljs-title class_">VO</span> &#123;<br><br>&lt;<span class="hljs-comment">#-- ----------  BEGIN 字段循环遍历  ----------&gt;</span><br>&lt;<span class="hljs-comment">#list table.fields as field&gt;</span><br>    &lt;<span class="hljs-comment">#if field.name != &quot;is_delete&quot;&gt;</span><br>        &lt;<span class="hljs-comment">#if field.keyFlag&gt;</span><br>            &lt;<span class="hljs-comment">#assign keyPropertyName=&quot;$&#123;field.propertyName&#125;&quot;/&gt;</span><br>        &lt;/<span class="hljs-comment">#if&gt;</span><br><br>        &lt;<span class="hljs-comment">#if field.comment!?length gt 0&gt;</span><br>    /**<br>     * <span class="hljs-variable">$&#123;</span>field.comment&#125;<br>     */<br>    <span class="hljs-variable">@ApiModelProperty</span>(value = <span class="hljs-string">&quot;$&#123;field.comment&#125;&quot;</span>)<br>        &lt;/<span class="hljs-comment">#if&gt;</span><br>    private <span class="hljs-variable">$&#123;</span>field.propertyType&#125; <span class="hljs-variable">$&#123;</span>field.propertyName&#125;;<br>    &lt;/<span class="hljs-comment">#if&gt;</span><br>&lt;/<span class="hljs-comment">#list&gt;</span><br>&lt;<span class="hljs-comment">#------------  END 字段循环遍历  ----------&gt;</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h3 id="六、用到的其他类-PageUtil"><a href="#六、用到的其他类-PageUtil" class="headerlink" title="六、用到的其他类 PageUtil"></a>六、用到的其他类 PageUtil</h3><p>使用到了分页的工具类,放在utils目录下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.mitool.springboot.utils;<br><br><span class="hljs-keyword">import</span> com.github.pagehelper.PageInfo;<br><br><span class="hljs-keyword">import</span> java.util.List;<br><span class="hljs-keyword">import</span> java.util.function.Function;<br><span class="hljs-keyword">import</span> java.util.stream.Collectors;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 分页工具类</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Jimmy.Shen</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@since</span> 2021/11/26</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">PageUtil</span> &#123;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 通用pageInfo转换</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> sourcePageInfo 源数据</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> targetClass    目标类型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> mapper         list转换方法</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> &lt;T&gt;            目标类型</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> &lt;S&gt;            源类型</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> &lt;T, S&gt; PageInfo&lt;T&gt; <span class="hljs-title function_">pageInfoCopy</span><span class="hljs-params">(PageInfo&lt;S&gt; sourcePageInfo, Class&lt;T&gt; targetClass, Function&lt;S, T&gt; mapper)</span> &#123;<br>        PageInfo&lt;T&gt; respPageInfo = <span class="hljs-keyword">new</span> <span class="hljs-title class_">PageInfo</span>&lt;&gt;();<br>        respPageInfo.setPageNum(sourcePageInfo.getPageNum());<br>        respPageInfo.setPageSize(sourcePageInfo.getPageSize());<br>        respPageInfo.setSize(sourcePageInfo.getSize());<br>        respPageInfo.setStartRow(sourcePageInfo.getStartRow());<br>        respPageInfo.setEndRow(sourcePageInfo.getEndRow());<br>        respPageInfo.setPages(sourcePageInfo.getPages());<br>        respPageInfo.setPrePage(sourcePageInfo.getPrePage());<br>        respPageInfo.setNextPage(sourcePageInfo.getNextPage());<br>        respPageInfo.setIsFirstPage(sourcePageInfo.isIsFirstPage());<br>        respPageInfo.setIsLastPage(sourcePageInfo.isIsLastPage());<br>        respPageInfo.setHasPreviousPage(sourcePageInfo.isHasPreviousPage());<br>        respPageInfo.setHasNextPage(sourcePageInfo.isHasNextPage());<br>        respPageInfo.setNavigatePages(sourcePageInfo.getNavigatePages());<br>        respPageInfo.setNavigatepageNums(sourcePageInfo.getNavigatepageNums());<br>        respPageInfo.setNavigateFirstPage(sourcePageInfo.getNavigateFirstPage());<br>        respPageInfo.setNavigateLastPage(sourcePageInfo.getNavigateLastPage());<br>        respPageInfo.setTotal(sourcePageInfo.getTotal());<br><br>        List&lt;T&gt; pageList = sourcePageInfo.getList().stream().map(mapper).collect(Collectors.toList());<br>        respPageInfo.setList(pageList);<br>        <span class="hljs-keyword">return</span> respPageInfo;<br>    &#125;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+<h3 id="七、运行-CodeGeneratorUtil-main方法"><a href="#七、运行-CodeGeneratorUtil-main方法" class="headerlink" title="七、运行 CodeGeneratorUtil main方法"></a>七、运行 CodeGeneratorUtil main方法</h3><p>输入作者、包、表名生成文件，启动项目后可生成代码<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springboot%E8%BE%93%E5%85%A5%E4%BD%9C%E8%80%85-%E5%8C%85-%E8%A1%A8%E5%90%8D.png" srcset="/blog/img/loading.gif" lazyload></p>
+<p>生成的项目架构<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springboot%E4%BB%A3%E7%A0%81%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%90%8E%E7%9A%84%E7%9B%AE%E5%BD%95.png" srcset="/blog/img/loading.gif" lazyload><br>使用swagger查看<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/springbootswagger%E7%95%8C%E9%9D%A2.png" srcset="/blog/img/loading.gif" lazyload></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/blog/categories/spring/" class="category-chain-item">spring</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/blog/tags/springboot/">#springboot</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【SpringBoot】最基础的项目架构（SpringBoot+Mybatis-plus+lombok+knife4j+hutool）</div>
+      <div>https://purecodefarmer.gitee.io/docs/springboot-01/spring/springboot-01/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>JimmyShen</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年8月25日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/blog/docs/springboot-02/spring/springboot-02/" title="【SpringBoot】SpringBoot的启动流程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【SpringBoot】SpringBoot的启动流程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/blog/docs/leonardo-01/chatgpt/leonardo-01/" title="【大数据模型】LeonardoAi让心中所想跃然纸上">
+                        <span class="hidden-mobile">【大数据模型】LeonardoAi让心中所想跃然纸上</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/blog/js/events.js" ></script>
+<script  src="/blog/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+    <script  src="/blog/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/blog/js/local-search.js" ></script>
+
+  <script defer src="/blog/js/leancloud.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/blog/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -16,16 +16,16 @@
   <meta name="author" content="JimmyShen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="汝之观览，吾之幸也！本文主要讲的是Shell的基本概念与用法">
+    <meta name="description" content="汝之观览，吾之幸也！本文主要讲的是Shell的基本概念与用法  1、概念shell是一个命令行解释器，它接收应用程序&#x2F;用户命令，然后调用操作系统内核。 2、文件格式脚本以#!&#x2F;bin&#x2F;bash开头，.sh文件结尾 3、变量1、常用系统变量$HOME、$PWD、$SHELL、$USER等 2、自定义变量 变量名称可以由字母、数字和下划线组成，但是不能以数字开头，环境变量名建议大写。 等号两侧不能有">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【大数据】事半功倍的shell脚本">
 <meta property="og:url" content="https://purecodefarmer.gitee.io/docs/shell-01/bigdata/shell/shell-01/index.html">
 <meta property="og:site_name" content="pureCodeFarmer">
-<meta property="og:description" content="汝之观览，吾之幸也！本文主要讲的是Shell的基本概念与用法">
+<meta property="og:description" content="汝之观览，吾之幸也！本文主要讲的是Shell的基本概念与用法  1、概念shell是一个命令行解释器，它接收应用程序&#x2F;用户命令，然后调用操作系统内核。 2、文件格式脚本以#!&#x2F;bin&#x2F;bash开头，.sh文件结尾 3、变量1、常用系统变量$HOME、$PWD、$SHELL、$USER等 2、自定义变量 变量名称可以由字母、数字和下划线组成，但是不能以数字开头，环境变量名建议大写。 等号两侧不能有">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/cover_img/girl/girl5.png">
 <meta property="article:published_time" content="2022-08-13T15:29:14.000Z">
-<meta property="article:modified_time" content="2022-09-15T02:53:47.366Z">
+<meta property="article:modified_time" content="2024-02-22T02:38:15.318Z">
 <meta property="article:author" content="JimmyShen">
 <meta property="article:tag" content="shell">
 <meta name="twitter:card" content="summary_large_image">
@@ -219,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          30 字
+          1.5k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
         
-          1 分钟
+          13 分钟
         
       </span>
     
@@ -283,6 +283,38 @@
               <blockquote>
 <p>汝之观览，吾之幸也！本文主要讲的是Shell的基本概念与用法</p>
 </blockquote>
+<h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/linux/linux-shell.png" srcset="/blog/img/loading.gif" lazyload><br>shell是一个命令行解释器，它接收应用程序/用户命令，然后调用操作系统内核。<br><img src="https://jimmy-blog-images.oss-cn-shanghai.aliyuncs.com/img/linux/shell%E5%86%85%E6%A0%B8.png" srcset="/blog/img/loading.gif" lazyload></p>
+<h3 id="2、文件格式"><a href="#2、文件格式" class="headerlink" title="2、文件格式"></a>2、文件格式</h3><p>脚本以#!/bin/bash开头，.sh文件结尾</p>
+<h3 id="3、变量"><a href="#3、变量" class="headerlink" title="3、变量"></a>3、变量</h3><h4 id="1、常用系统变量"><a href="#1、常用系统变量" class="headerlink" title="1、常用系统变量"></a>1、常用系统变量</h4><p>$HOME、$PWD、$SHELL、$USER等</p>
+<h4 id="2、自定义变量"><a href="#2、自定义变量" class="headerlink" title="2、自定义变量"></a>2、自定义变量</h4><ul>
+<li>变量名称可以由字母、数字和下划线组成，但是不能以数字开头，环境变量名建议大写。</li>
+<li>等号两侧不能有空格</li>
+<li>在bash中，变量默认类型都是字符串类型，无法直接进行数值运算。</li>
+<li>变量的值如果有空格，需要使用双引号或单引号括起来。<h4 id="3、特殊变量"><a href="#3、特殊变量" class="headerlink" title="3、特殊变量"></a>3、特殊变量</h4><h5 id="n"><a href="#n" class="headerlink" title="$n"></a>$n</h5>$n    （功能描述：n为数字，$0代表该脚本名称，$1-$9代表第一到第九个参数，十以上的参数，十以上的参数需要用大括号包含，如${10}）<h5 id><a href="#" class="headerlink" title="$#"></a>$#</h5>$#    （功能描述：获取所有输入参数个数，常用于循环）。<h5 id="、"><a href="#、" class="headerlink" title="$*、$@"></a>$*、$@</h5>$*    （功能描述：这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体）<br>$@    （功能描述：这个变量也代表命令行中所有的参数，不过$@把每个参数区分对待）<h5 id="-1"><a href="#-1" class="headerlink" title="$?"></a>$?</h5>$?    （功能描述：最后一次执行的命令的返回状态。如果这个变量的值为0，证明上一个命令正确执行；如果这个变量的值为非0（具体是哪个数，由命令自己来决定），则证明上一个命令执行不正确了。）<h3 id="4、运算符"><a href="#4、运算符" class="headerlink" title="4、运算符"></a>4、运算符</h3>$((运算式))或$[运算式]<h3 id="5、条件判断"><a href="#5、条件判断" class="headerlink" title="5、条件判断"></a>5、条件判断</h3><h4 id="1、两个整数之间比较"><a href="#1、两个整数之间比较" class="headerlink" title="1、两个整数之间比较"></a>1、两个整数之间比较</h4>= 字符串比较</li>
+<li>lt 小于（less than）            </li>
+<li>le 小于等于（less equal）</li>
+<li>eq 等于（equal）                </li>
+<li>gt 大于（greater than）</li>
+<li>ge 大于等于（greater equal）    </li>
+<li>ne 不等于（Not equal）<h4 id="2、文件权限判断"><a href="#2、文件权限判断" class="headerlink" title="2、文件权限判断"></a>2、文件权限判断</h4></li>
+<li>r 有读的权限（read）            </li>
+<li>w 有写的权限（write）</li>
+<li>x 有执行的权限（execute）<h4 id="3、文件类型判断"><a href="#3、文件类型判断" class="headerlink" title="3、文件类型判断"></a>3、文件类型判断</h4></li>
+<li>f 文件存在并且是一个常规的文件（file）</li>
+<li>e 文件存在（existence）        </li>
+<li>d 文件存在并是一个目录（directory）<h3 id="6、流程控制"><a href="#6、流程控制" class="headerlink" title="6、流程控制"></a>6、流程控制</h3><h4 id="1、if判断"><a href="#1、if判断" class="headerlink" title="1、if判断"></a>1、if判断</h4>基本语法<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">if</span> [ 条件判断式 ];<span class="hljs-keyword">then</span> <br>  程序 <br><span class="hljs-keyword">fi</span> <br>或者 <br><span class="hljs-keyword">if</span> [ 条件判断式 ] <br>  <span class="hljs-keyword">then</span> <br>    程序 <br><span class="hljs-keyword">elif</span> [ 条件判断式 ]<br>	<span class="hljs-keyword">then</span><br>		程序<br><span class="hljs-keyword">else</span><br>	程序<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></table></figure>
+备注：</li>
+<li>[ 条件判断式 ]，中括号和条件判断式之间必须有空格</li>
+<li>if后要有空格<h4 id="2、case语句"><a href="#2、case语句" class="headerlink" title="2、case语句"></a>2、case语句</h4>基本语法<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs llvm">case $变量名 in <br>  <span class="hljs-string">&quot;值1&quot;</span>） <br>    如果变量的值等于值<span class="hljs-number">1</span>，则执行程序<span class="hljs-number">1</span> <br>    <span class="hljs-comment">;; </span><br>  <span class="hljs-string">&quot;值2&quot;</span>） <br>    如果变量的值等于值<span class="hljs-number">2</span>，则执行程序<span class="hljs-number">2</span> <br>    <span class="hljs-comment">;; </span><br>  …省略其他分支… <br>  *） <br>    如果变量的值都不是以上的值，则执行此程序 <br>    <span class="hljs-comment">;; </span><br>esac<br></code></pre></td></tr></table></figure>
+备注：</li>
+<li>case行尾必须为单词“in”，每一个模式匹配必须以右括号“）”结束。</li>
+<li>双分号“;;”表示命令序列结束，相当于java中的break。</li>
+<li>最后的“*）”表示默认模式，相当于java中的default。<h4 id="3、for循环"><a href="#3、for循环" class="headerlink" title="3、for循环"></a>3、for循环</h4>基本语法<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs gcode">for <span class="hljs-comment">(( 初始值;循环控制条件;变量变化 )</span>) <br>  <span class="hljs-keyword">do</span> <br>    程序 <br>  <span class="hljs-keyword">do</span><span class="hljs-symbol">ne</span><br></code></pre></td></tr></table></figure>
+<h4 id="4、while循环"><a href="#4、while循环" class="headerlink" title="4、while循环"></a>4、while循环</h4>基本语法<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">while</span> [ 条件判断式 ] <br>  <span class="hljs-keyword">do</span> <br>    程序<br>  <span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<h3 id="7、read"><a href="#7、read" class="headerlink" title="7、read"></a>7、read</h3>基本语法<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">read</span><span class="hljs-params">(选项)</span><span class="hljs-params">(参数)</span></span><br>选项：<br>-p：指定读取值时的提示符；<br>-t：指定读取值时等待的时间（秒）。<br>参数<br>	变量：指定读取值的变量名<br></code></pre></td></tr></table></figure>
+<h3 id="8、函数"><a href="#8、函数" class="headerlink" title="8、函数"></a>8、函数</h3><h4 id="1、basename"><a href="#1、basename" class="headerlink" title="1、basename"></a>1、basename</h4>基本语法<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mel"><span class="hljs-keyword">basename</span> [<span class="hljs-keyword">string</span> / pathname] [suffix]  	（功能描述：<span class="hljs-keyword">basename</span>命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来。<br></code></pre></td></tr></table></figure>
+<h4 id="2、dirname"><a href="#2、dirname" class="headerlink" title="2、dirname"></a>2、dirname</h4>基本语法<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">dirname</span> 文件绝对路径		（功能描述：从给定的包含绝对路径的文件名中去除文件名（非目录的部分），然后返回剩下的路径（目录的部分））<br></code></pre></td></tr></table></figure></li>
+</ul>
 
               
             </div>
